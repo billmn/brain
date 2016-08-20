@@ -1,0 +1,153 @@
+.cms-content {
+    img {
+        height: auto;
+        display: block;
+        max-width: 100%;
+    }
+
+    [data-oembed] {
+        float: none;
+        clear: both;
+        width: 100%;
+        position: relative;
+        padding-bottom: 56.25%;
+        padding-top: 25px;
+        height: 0;
+
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+}
+
+.content-table {
+    width: 100%;
+    max-width: 100%;
+    border: 1px solid #ddd;
+    background-color: #fff;
+
+    caption {
+        color: #777777;
+        text-align: left;
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+
+    th {
+        text-align: left;
+    }
+
+    > thead,
+    > tbody,
+    > tfoot {
+        > tr {
+            > th,
+            > td {
+                padding: 8px;
+                line-height: 1.428571429;
+                vertical-align: top;
+                border-top: 1px solid #ddd;
+            }
+        }
+    }
+
+    > thead > tr > th {
+        vertical-align: bottom;
+        border-bottom: 2px solid #ddd;
+    }
+
+    > caption + thead,
+    > colgroup + thead,
+    > thead:first-child {
+        > tr:first-child {
+            > th,
+            > td {
+                border-top: 0;
+            }
+        }
+    }
+
+    > tbody + tbody {
+        border-top: 2px solid #ddd;
+    }
+
+    > thead,
+    > tbody,
+    > tfoot {
+        > tr {
+            > th,
+            > td {
+                border: 1px solid #ddd;
+            }
+        }
+    }
+    > thead > tr {
+        > th,
+        > td {
+            border-bottom-width: 2px;
+        }
+    }
+    > tbody > tr:nth-of-type(odd) {
+        background-color: #f9f9f9;
+    }
+}
+
+.content-table-wrapper {
+    margin: 10px 0;
+    overflow-x: auto;
+    min-height: 0.01%;
+
+    @media screen and (max-width: 767px) {
+        width: 100%;
+        margin-bottom: 15px;
+        overflow-y: hidden;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+        border: 1px solid #ddd;
+
+        > .content-table {
+            border: 0;
+            margin-bottom: 0;
+
+            > thead,
+            > tbody,
+            > tfoot {
+                > tr {
+                    > th,
+                    > td {
+                        white-space: nowrap;
+                    }
+                }
+            }
+
+            > thead,
+            > tbody,
+            > tfoot {
+                > tr {
+                    > th:first-child,
+                    > td:first-child {
+                        border-left: 0;
+                    }
+                    > th:last-child,
+                    > td:last-child {
+                        border-right: 0;
+                    }
+                }
+            }
+
+            > tbody,
+            > tfoot {
+                > tr:last-child {
+                    > th,
+                    > td {
+                        border-bottom: 0;
+                    }
+                }
+            }
+        }
+    }
+}

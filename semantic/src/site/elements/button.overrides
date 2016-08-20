@@ -1,3 +1,70 @@
 /*******************************
          Site Overrides
 *******************************/
+
+.ui.menu button.item {
+    border: none;
+}
+.ui.menu > .right.menu button.item:last-child {
+  border-radius: 0px @borderRadius @borderRadius 0px;
+}
+
+/*-------------------
+       Primary
+--------------------*/
+
+.ui.menu button.item.primary {
+  color: @primaryTextColor;
+  background-color: @primaryColor;
+}
+.ui.menu button.item.primary:focus,
+.ui.menu button.item.primary:hover,
+.ui.menu button.item.primary:active, {
+  color: @primaryTextColor;
+  background-color: @primaryColorHover;
+}
+
+/*-------------------
+      Secondary
+--------------------*/
+
+.ui.menu button.item.secondary {
+  color: @secondaryTextColor;
+  background-color: @secondaryColor;
+}
+.ui.menu button.item.secondary:focus,
+.ui.menu button.item.secondary:hover,
+.ui.menu button.item.secondary:active, {
+  color: @secondaryTextColor;
+  background-color: @secondaryColorHover;
+}
+
+/*---------------
+    Positive
+----------------*/
+
+.ui.menu button.item.positive {
+  color: @invertedTextColor;
+  background-color: @positiveColor !important;
+}
+.ui.menu button.item.positive:focus,
+.ui.menu button.item.positive:hover,
+.ui.menu button.item.positive:active, {
+  color: @invertedTextColor;
+  background-color: @positiveColorHover !important;
+}
+
+/*---------------
+     Negative
+----------------*/
+
+.ui.menu button.item.negative {
+  color: @invertedTextColor;
+  background-color: @negativeColor !important;
+}
+.ui.menu button.item.negative:focus,
+.ui.menu button.item.negative:hover,
+.ui.menu button.item.negative:active, {
+  color: @invertedTextColor;
+  background-color: @negativeColorHover !important;
+}

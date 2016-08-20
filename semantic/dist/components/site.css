@@ -158,3 +158,58 @@ input::selection {
          Site Overrides
 *******************************/
 
+.text.white,
+.ui.menu .item.white,
+.ui.menu.icon .item.white {
+  color: #FFFFFF;
+}
+.text.grey,
+.ui.menu .item.grey,
+.ui.menu.icon .item.grey {
+  color: #767676;
+}
+.text.black,
+.ui.menu .item.black,
+.ui.menu.icon .item.black {
+  color: #1B1C1D;
+}
+.text.yellow,
+.ui.menu .item.yellow,
+.ui.menu.icon .item.yellow {
+  color: #FBBD08;
+}
+.text.teal,
+.ui.menu .item.teal,
+.ui.menu.icon .item.teal {
+  color: #00B5AD;
+}
+.text.red,
+.ui.menu .item.red,
+.ui.menu.icon .item.red {
+  color: #DB2828;
+}
+.text.purple,
+.ui.menu .item.purple,
+.ui.menu.icon .item.purple {
+  color: #A333C8;
+}
+.text.pink,
+.ui.menu .item.pink,
+.ui.menu.icon .item.pink {
+  color: #E03997;
+}
+.text.orange,
+.ui.menu .item.orange,
+.ui.menu.icon .item.orange {
+  color: #F2711C;
+}
+.text.green,
+.ui.menu .item.green,
+.ui.menu.icon .item.green {
+  color: #21BA45;
+}
+.text.blue,
+.ui.menu .item.blue,
+.ui.menu.icon .item.blue {
+  color: #2185D0;
+}

@@ -1,0 +1,86 @@
+/*
+|--------------------------------------------------------------------------
+| JQTREE
+|--------------------------------------------------------------------------
+*/
+
+// Fix drag above the first node
+.tree-cont {
+    padding: 1px 0 0;
+}
+.block-style ul.jqtree-tree {
+    margin-left: 0;
+}
+.block-style ul.jqtree-tree ul.jqtree_common {
+    margin-left: 2em;
+}
+.block-style ul.jqtree-tree .jqtree-element {
+    padding: 8px;
+    margin-bottom: 8px;
+    background-color: #f9f9f9;
+}
+.block-style ul.jqtree-tree .jqtree-element:hover {
+    padding: 8px;
+    margin-bottom: 8px;
+    background-color: #efefef;
+}
+.block-style ul.jqtree-tree .jqtree-moving .jqtree-element {
+    background-color: #fff6d6;
+}
+.block-style ul.jqtree-tree .jqtree-element .jqtree-title {
+    margin-left: 0;
+}
+.block-style ul.jqtree-tree li.jqtree-selected > .jqtree-element,
+.block-style ul.jqtree-tree li.jqtree-selected > .jqtree-element:hover {
+    background: #cccccc;
+    text-shadow: none;
+}
+.jqtree-element .actions .ui.button {
+    padding: .4em .4em;
+    font-weight: 400;
+}
+.jqtree-element .actions i.icon {
+    margin: 0 !important;
+}
+.jqtree-element .actions {
+    float: right;
+    margin-top: -2px;
+    display: inline-block;
+}
+
+/*
+|--------------------------------------------------------------------------
+| PICKADATE
+|--------------------------------------------------------------------------
+*/
+.ui .picker select {
+    width: 35%;
+    height: 2em;
+    display: inline-block;
+}
+
+/*
+|--------------------------------------------------------------------------
+| MAGNIFIC POPUP
+|--------------------------------------------------------------------------
+*/
+.mfp-bg {
+    z-index: 10011;
+}
+.mfp-wrap {
+    z-index: 10012;
+}
+.mfp-iframe-holder .mfp-content {
+    max-width: 90%;
+    max-height: 90%;
+}
+
+/*
+|--------------------------------------------------------------------------
+| SORTABLE
+|--------------------------------------------------------------------------
+*/
+.sortable-ghost {
+    opacity: 0.5;
+    background-color: #f9f9f9;
+}

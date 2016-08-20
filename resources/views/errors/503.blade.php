@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Be right back.</title>
+        <title>{{ settings('maintenance.title') }}</title>
 
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
 
@@ -16,8 +16,9 @@
                 width: 100%;
                 color: #B0BEC5;
                 display: table;
+                font-size: 24px;
                 font-weight: 100;
-                font-family: 'Lato', sans-serif;
+                font-family: 'Lato';
             }
 
             .container {
@@ -27,6 +28,7 @@
             }
 
             .content {
+                margin-top: -72px;
                 text-align: center;
                 display: inline-block;
             }
@@ -40,7 +42,7 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Be right back.</div>
+                {!! settings('maintenance.content') !!}
             </div>
         </div>
     </body>

@@ -6,6 +6,8 @@
  */
 
 require('./bootstrap');
+require('./classes/_filemanager');
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -15,6 +17,6 @@ require('./bootstrap');
 
 Vue.component('example', require('./components/Example.vue'));
 
-const app = new Vue({
-    el: 'body'
-});
+// const app = new Vue({
+//     el: 'body'
+// });

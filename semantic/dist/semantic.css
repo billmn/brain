@@ -663,6 +663,72 @@ input::selection {
 /*******************************
          Site Overrides
 *******************************/
+
+.text.white,
+.ui.menu .item.white,
+.ui.menu.icon .item.white {
+  color: #FFFFFF;
+}
+
+.text.grey,
+.ui.menu .item.grey,
+.ui.menu.icon .item.grey {
+  color: #767676;
+}
+
+.text.black,
+.ui.menu .item.black,
+.ui.menu.icon .item.black {
+  color: #1B1C1D;
+}
+
+.text.yellow,
+.ui.menu .item.yellow,
+.ui.menu.icon .item.yellow {
+  color: #FBBD08;
+}
+
+.text.teal,
+.ui.menu .item.teal,
+.ui.menu.icon .item.teal {
+  color: #00B5AD;
+}
+
+.text.red,
+.ui.menu .item.red,
+.ui.menu.icon .item.red {
+  color: #DB2828;
+}
+
+.text.purple,
+.ui.menu .item.purple,
+.ui.menu.icon .item.purple {
+  color: #A333C8;
+}
+
+.text.pink,
+.ui.menu .item.pink,
+.ui.menu.icon .item.pink {
+  color: #E03997;
+}
+
+.text.orange,
+.ui.menu .item.orange,
+.ui.menu.icon .item.orange {
+  color: #F2711C;
+}
+
+.text.green,
+.ui.menu .item.green,
+.ui.menu.icon .item.green {
+  color: #21BA45;
+}
+
+.text.blue,
+.ui.menu .item.blue,
+.ui.menu.icon .item.blue {
+  color: #2185D0;
+}
 /*!
  * # Semantic UI 2.2.2 - Button
  * http://github.com/semantic-org/semantic-ui/
@@ -4618,6 +4684,78 @@ input::selection {
 /*******************************
          Site Overrides
 *******************************/
+
+.ui.menu button.item {
+  border: none;
+}
+
+.ui.menu > .right.menu button.item:last-child {
+  border-radius: 0px 0.28571429rem 0.28571429rem 0px;
+}
+
+/*-------------------
+       Primary
+--------------------*/
+
+.ui.menu button.item.primary {
+  color: #FFFFFF;
+  background-color: #2185D0;
+}
+
+.ui.menu button.item.primary:focus,
+.ui.menu button.item.primary:hover,
+.ui.menu button.item.primary:active {
+  color: #FFFFFF;
+  background-color: #1678c2;
+}
+
+/*-------------------
+      Secondary
+--------------------*/
+
+.ui.menu button.item.secondary {
+  color: #FFFFFF;
+  background-color: #1B1C1D;
+}
+
+.ui.menu button.item.secondary:focus,
+.ui.menu button.item.secondary:hover,
+.ui.menu button.item.secondary:active {
+  color: #FFFFFF;
+  background-color: #27292a;
+}
+
+/*---------------
+    Positive
+----------------*/
+
+.ui.menu button.item.positive {
+  color: #FFFFFF;
+  background-color: #21BA45 !important;
+}
+
+.ui.menu button.item.positive:focus,
+.ui.menu button.item.positive:hover,
+.ui.menu button.item.positive:active {
+  color: #FFFFFF;
+  background-color: #16ab39 !important;
+}
+
+/*---------------
+     Negative
+----------------*/
+
+.ui.menu button.item.negative {
+  color: #FFFFFF;
+  background-color: #DB2828 !important;
+}
+
+.ui.menu button.item.negative:focus,
+.ui.menu button.item.negative:hover,
+.ui.menu button.item.negative:active {
+  color: #FFFFFF;
+  background-color: #d01919 !important;
+}
 /*!
  * # Semantic UI 2.2.2 - Container
  * http://github.com/semantic-org/semantic-ui/

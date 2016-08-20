@@ -1,9 +1,143 @@
+@import "plugins";
 
-// Fonts
-@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+/*
+|--------------------------------------------------------------------------
+| MAIN
+|--------------------------------------------------------------------------
+*/
+#content {
+    padding-top: 70px;
+    padding-bottom: 30px;
+}
 
-// Variables
-@import "variables";
+/*
+|--------------------------------------------------------------------------
+| RESET
+|--------------------------------------------------------------------------
+*/
+table .ui.button,
+.dd-item .ui.button {
+    padding: .4em .4em;
+    font-weight: 400;
+}
+table .ui.button i.icon,
+.dd-item .ui.button i.icon {
+    margin: 0 !important;
+}
+.top.menu .item.icon-only .icon {
+    margin: 0;
+    font-size: 22px;
+}
+#content > .ui.menu:first-child {
+    margin-top: 1rem;
+}
 
-// Bootstrap
-@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+/*
+|--------------------------------------------------------------------------
+| UTILITY
+|--------------------------------------------------------------------------
+*/
+.inline.form {
+    top: -1px;
+    display: inline-block;
+}
+.stacked.ui.button {
+    margin-bottom: 10px;
+}
+table td.empty {
+    color: #bbbbbb;
+}
+.modal-content {
+    padding: 0 2%;
+}
+.modal-content.with-menu {
+    padding-top: 50px;
+    padding-bottom: 25px;
+}
+
+/*
+|--------------------------------------------------------------------------
+| AUTH
+|--------------------------------------------------------------------------
+*/
+body#auth {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: #eee;
+}
+body#auth .form {
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+}
+body#auth .form .header {
+    padding-bottom: 10px;
+}
+body#auth .buttons {
+    padding-top: 10px;
+}
+
+/*
+|--------------------------------------------------------------------------
+| THEMES
+|--------------------------------------------------------------------------
+*/
+#themes_cont .card {
+    width: 264px;
+}
+
+/*
+|--------------------------------------------------------------------------
+| GALLERY
+|--------------------------------------------------------------------------
+*/
+.gallery-item {
+    width: 80px;
+    height: 80px;
+    margin: 4px;
+    display: inline-block;
+    overflow: hidden;
+    text-align: center;
+    border: 1px solid #cccccc;
+    background-color: #efefef;
+
+    :hover {
+        cursor: move;
+    }
+
+    img {
+        height: 80px;
+    }
+
+    .image {
+        position: relative;
+
+        .remove-btn {
+            top: 0;
+            right: 0;
+            width: 20px;
+            color: #ffffff;
+            height: 20px;
+            margin: 0;
+            position: absolute;
+            background: #DB2828;
+
+            :hover {
+                cursor: pointer;
+            }
+
+            .icon {
+                margin: 0;
+            }
+        }
+    }
+}
+
+/*
+|--------------------------------------------------------------------------
+| PAGES
+|--------------------------------------------------------------------------
+*/
+.page-link {
+    margin: 5px 0 25px;
+}

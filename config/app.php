@@ -167,6 +167,9 @@ return [
          * Package Service Providers...
          */
         Barryvdh\Debugbar\ServiceProvider::class,
+        Collective\Html\HtmlServiceProvider::class,
+        Cviebrock\EloquentSluggable\ServiceProvider::class,
+        Spatie\EloquentSortable\SortableServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -227,6 +230,8 @@ return [
         /*
          * Package Facades...
          */
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
 
     ],
