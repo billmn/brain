@@ -81,28 +81,30 @@ $(function() {
         }
     });
 
-    $tree.bind('tree.move', function(event) {
-        var nodes = [];
+    @if ($menu->id)
+        $tree.bind('tree.move', function(event) {
+            var nodes = [];
 
-        // When you handle the tree.move event, the node is not moved yet in the tree.
-        // You must call preventDefault to prevent doing the move twice.
-        event.preventDefault();
-        event.move_info.do_move();
+            // When you handle the tree.move event, the node is not moved yet in the tree.
+            // You must call preventDefault to prevent doing the move twice.
+            event.preventDefault();
+            event.move_info.do_move();
 
-        $.each($tree.tree('getTree').getData(), function(index, node) {
-            nodes.push(node.id);
+            $.each($tree.tree('getTree').getData(), function(index, node) {
+                nodes.push(node.id);
+            });
+
+            $.ajax({
+                url: "{{ route('menus.items.move') }}",
+                type: 'POST',
+                data: {
+                    form: {{ $menu->id }},
+                    nodes: JSON.stringify(nodes),
+                    _token: '{{ csrf_token() }}'
+                }
+            });
         });
-
-        $.ajax({
-            url: "{{ route('menus.items.move') }}",
-            type: 'POST',
-            data: {
-                form: {{ $menu->id }},
-                nodes: JSON.stringify(nodes),
-                _token: '{{ csrf_token() }}'
-            }
-        });
-    });
+    @endif
 
     $tree.on('click', '.btn-destroy', function(e) {
         e.preventDefault();

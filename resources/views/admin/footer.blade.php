@@ -4,6 +4,6 @@
     | VUE
     |--------------------------------------------------------------------------
     */
-    new Vue({ el: '#content' });
-    new Vue({ el: '#iframe_content' });
+    // new Vue({ el: '#content' });
+    // new Vue({ el: '#iframe_content' });
 </script>

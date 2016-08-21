@@ -168,6 +168,7 @@ return [
          */
         Barryvdh\Debugbar\ServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
+        Barryvdh\Elfinder\ElfinderServiceProvider::class,
         Cviebrock\EloquentSluggable\ServiceProvider::class,
         Spatie\EloquentSortable\SortableServiceProvider::class,
 

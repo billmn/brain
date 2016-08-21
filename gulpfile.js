@@ -32,8 +32,8 @@ elixir(mix => {
         .webpack('admin.js', 'public/assets/js')
 
         .scripts([
-            // 'node_modules/js-cookie/src/js.cookie.js',
-            // 'node_modules/sortablejs/Sortable.min.js',
+            'node_modules/js-cookie/src/js.cookie.js',
+            'node_modules/sortablejs/Sortable.min.js',
             'node_modules/pickadate/lib/compressed/picker.js',
             'node_modules/pickadate/lib/compressed/picker.date.js',
             'node_modules/pickadate/lib/compressed/picker.time.js',
@@ -42,7 +42,7 @@ elixir(mix => {
             'public/assets/vendor/ckeditor/ckeditor.js',
             'public/assets/vendor/ckeditor/adapters/jquery.js',
             'semantic/dist/semantic.js',
-            // 'resources/assets/js/classes/_filemanager.js'
+            'resources/assets/js/classes/_filemanager.js'
             // 'public/assets/build/app.js'
         ], 'public/assets/js/vendor.js', './')
 
