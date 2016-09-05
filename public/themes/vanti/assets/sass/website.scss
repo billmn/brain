@@ -1,0 +1,212 @@
+/*
+|--------------------------------------------------------------------------
+| IMPORT
+|--------------------------------------------------------------------------
+*/
+@import "variables";
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+body {
+    padding-top: $navbar-height;
+}
+
+/*
+|--------------------------------------------------------------------------
+| NAVBAR
+|--------------------------------------------------------------------------
+*/
+.navbar-fixed-top {
+    text-transform: uppercase;
+    font-family: $font-open-sans;
+
+    .navbar-brand {
+        font-size: 18px;
+        font-weight: bold;
+        letter-spacing: 3.5px;
+    }
+}
+.overlay {
+    top: 0;
+    z-index: 980;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: url("../img/bg-pattern.png") 0 0;
+}
+.overlay-title {
+    color: #fff;
+    z-index: 981;
+    position: relative;
+}
+
+/*
+|--------------------------------------------------------------------------
+| HOME PAGE
+|--------------------------------------------------------------------------
+*/
+.home-carousel {
+    .item {
+        height: 700px;
+        overflow: hidden;
+        position: relative;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        border-bottom: 6px solid $vanti-color;
+
+        .slider-caption {
+            top: 50%;
+            color: #fff;
+            z-index: 981;
+            position: relative;
+            text-align: center;
+            transform: translateY(-50%);
+
+            .title {
+                margin: 0;
+                font-size: 50px;
+            }
+        }
+    }
+
+    .owl-nav {
+        top: 50%;
+        margin: 0;
+        width: 100%;
+        position: absolute;
+        transform: translateY(-50%);
+
+        [class*=owl-] {
+            margin: -20px 0 0;
+            padding: 0;
+            font-size: 40px;
+            position: absolute;
+            background: transparent;
+        }
+        .owl-prev {
+            left: 5%;
+        }
+        .owl-next {
+            right: 5%;
+        }
+    }
+
+    .owl-dots {
+        top: 90%;
+        width: 100%;
+        position: absolute;
+
+        .owl-dot span {
+            border-radius: 0;
+        }
+        .owl-dot.active span {
+            background: $vanti-color;
+        }
+    }
+}
+.home-section {
+    margin: 60px 0;
+    text-align: center;
+
+    hr {
+        width: 80px;
+        border: 0;
+        height: 2px;
+        background: #ccc;
+    }
+
+    .section-subtitle {
+        font-family: $font-open-sans;
+
+        &:before {
+            box-sizing: border-box;
+            color: $vanti-color;
+            content: "[";
+            display: inline;
+            height: auto;
+            margin-right: 14px;
+            width: auto;
+        }
+        &:after {
+            box-sizing: border-box;
+            color: $vanti-color;
+            content: "]";
+            display: inline;
+            height: auto;
+            margin-left: 14px;
+            width: auto;
+        }
+    }
+
+    p {
+        color: #787878;
+        font-size: 22px;
+        font-weight: 300;
+        line-height: 40px;
+    }
+}
+
+.home-parallax {
+    color: #fff;
+    margin: 20px 0;
+    padding: 100px 0;
+    position: relative;
+    text-align: center;
+    margin-bottom:40px;
+
+    h1 {
+        font-size: 50px;
+    }
+}
+
+
+
+.service {
+    text-align: center;
+    transition-duration: 0.8s;
+
+    .img-wrapper {
+        position: relative;
+    }
+    .img-wrapper:after{
+        content:'';
+        position:absolute;
+        width:100%;
+        height:100%;
+        top:0;
+        left:0;
+        -moz-transition: all 0.3s ease;
+        -webkit-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+    }
+    .img-wrapper:hover:after{
+        display:block;
+        width: 100%;
+        height: 100%;
+        background: rgba(12, 12, 12, 0.4);
+    }
+
+    img {
+        margin-bottom: 20px;
+        border-bottom: 3px solid $vanti-color;
+    }
+
+    p {
+        color: #787878;
+    }
+
+    &:hover {
+        margin-top: -10px;
+        box-shadow: 5px 5px 0px 0px #efefef;
+        transition-duration: 0.8s;
+    }
+}
+
+
+.footer {
+    padding: 40px 0;
+    margin-top: 40px;
+    text-align: center;
+    background: #f0f0f0;
+    border-bottom: 6px solid $vanti-color;
+}

@@ -12,4 +12,5 @@ composer.lock
 .php_cs.cache
 storage/debugbar
 public/themes/*
+!public/themes/vanti/
 !public/themes/default/
