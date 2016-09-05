@@ -23,10 +23,10 @@ class PagesController extends Controller
     {
         parent::__construct();
 
-        // $this->theme = app('themes');
+        $this->theme = app('themes');
         $this->pageRepo = $pageRepo;
 
-        // $this->theme->setActive(settings('theme'));
+        $this->theme->setActive(settings('theme'));
 
         if ($website->isOffline()) {
             abort(503);
@@ -40,7 +40,6 @@ class PagesController extends Controller
      */
     public function index()
     {
-        die('loading ...');
         return $this->theme->view('home');
     }
 

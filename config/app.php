@@ -168,6 +168,7 @@ return [
          */
         Barryvdh\Debugbar\ServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
+        Caffeinated\Themes\ThemesServiceProvider::class,
         Barryvdh\Elfinder\ElfinderServiceProvider::class,
         Cviebrock\EloquentSluggable\ServiceProvider::class,
         Spatie\EloquentSortable\SortableServiceProvider::class,
@@ -233,6 +234,7 @@ return [
          */
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
+        'Theme' => Caffeinated\Themes\Facades\Theme::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
 
     ],

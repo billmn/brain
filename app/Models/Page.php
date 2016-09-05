@@ -184,6 +184,16 @@ class Page extends BaseModel
         return $value > 0 ? $value : null;
     }
 
+    public function setPublishStartAttribute($value)
+    {
+        return empty($value) ? null : $this->asDateTime($value);
+    }
+
+    public function setPublishEndAttribute($value)
+    {
+        return empty($value) ? null : $this->asDateTime($value);
+    }
+
     /*
     |--------------------------------------------------------------------------
     | UTILITY
