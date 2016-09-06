@@ -27,7 +27,7 @@ class Update1 extends Migration
             $table->boolean('custom_excerpt');
             $table->string('template')->nullable();
             $table->integer('form_id')->unsigned()->nullable();
-            $table->timestamp('publish_start')->nullable();
+            $table->timestamp('publish_start')->useCurrent();
             $table->timestamp('publish_end')->nullable();
             $table->timestamps();
 
@@ -53,7 +53,7 @@ class Update1 extends Migration
             $table->integer('page_id')->unsigned()->nullable()->index();
             $table->integer('sublevels')->unsigned()->nullable();
             $table->integer('order_column')->unsigned();
-            $table->timestamp('visible_from')->nullable();
+            $table->timestamp('visible_from')->useCurrent();
             $table->timestamp('visible_to')->nullable();
             $table->timestamps();
 
