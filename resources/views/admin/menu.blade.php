@@ -17,7 +17,9 @@
             {{ Auth::user()->name }} <i class="dropdown icon"></i>
 
             <div class="menu">
-                <a class="ui item" href="/logout">{{ trans('admin.auth.logout.button') }}</a>
+                {!! Form::open(['url' => 'logout']) !!}
+                    {!! Form::submit(trans('admin.auth.logout.button'), ['class' => 'ui item']) !!}
+                {!! Form::close() !!}
             </div>
         </div>
     </div>
