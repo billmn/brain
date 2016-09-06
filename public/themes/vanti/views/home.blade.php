@@ -4,7 +4,7 @@
 <div class="home-carousel">
     <div class="owl-carousel owl-theme">
         @for ($i = 1; $i <= 5; $i++)
-            <div class="item owl-lazy" data-src="{{ Theme::asset('img/07.jpg') }}">
+            <div class="item owl-lazy" data-src="{{ Theme::asset('img/cover.jpg') }}">
                 <div class="overlay"></div>
 
                 <div class="slider-caption">
@@ -27,7 +27,7 @@
     </section>
 </div>
 
-<div class="home-parallax" style="background: url(http://vantisrl.dev/wp-content/uploads/2014/09/03-2.jpg) fixed center;">
+<div class="home-parallax" style="background: url({{ Theme::asset('img/excavator.jpg') }}) fixed center;">
     <div class="overlay"></div>
     <h1 class="overlay-title">I NOSTRI SERVIZI</h1>
 </div>

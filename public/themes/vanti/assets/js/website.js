@@ -8,8 +8,8 @@ $(function()
         lazyLoad : true,
         autoplayHoverPause: true,
         navText: [
-            '<span class="glyphicon glyphicon-chevron-left"></span>',
-            '<span class="glyphicon glyphicon-chevron-right"></span>'
+            '<span class="glyphicon glyphicon-menu-left"></span>',
+            '<span class="glyphicon glyphicon-menu-right"></span>'
         ]
     });
 })
