@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Form;
+use Blade;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -26,7 +27,19 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->registerBladeExtensions();
+    }
+
+    /**
+     * Register Blade Extensions.
+     *
+     * @return void
+     */
+    protected function registerBladeExtensions()
+    {
+        Blade::extend(function ($value, $compiler) {
+            return preg_replace("/@set\('(.*?)'\,(.*)\)/", '<?php $$1 = $2; ?>', $value);
+        });
     }
 
     /**
