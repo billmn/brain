@@ -1,5 +1,6 @@
-$(function() {
-    $(".owl-carousel").owlCarousel({
+$(function()
+{
+    $('.owl-carousel').owlCarousel({
         nav: true,
         items: 1,
         loop: true,

@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Models\Menu;
 use App\Models\MenuItem;
+use App\Entities\MenuElement;
 
 class MenuRepository
 {
@@ -217,11 +218,7 @@ class MenuRepository
         $entities = [];
 
         foreach ($this->getItems($menuId) as $item) {
-            if ($item->type === 'page') {
-                $entities[] = (new \App\Entities\MenuElement($item->page))->fill();
-            } else {
-                $entities[] = (new \App\Entities\MenuElement($item))->fill();
-            }
+            $entities[] = (new MenuElement($item, $item->sublevels))->fill();
         }
 
         return collect($entities);
