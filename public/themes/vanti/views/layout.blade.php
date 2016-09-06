@@ -25,7 +25,7 @@
         <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu" aria-expanded="false">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -41,7 +41,7 @@
                 @set('menuItems1', App\Models\Page::defaultOrder()->get()->toTree())
 
                 @if ($menuItems->count())
-                    <div class="collapse navbar-collapse">
+                    <div id="menu" class="collapse navbar-collapse">
                         <ul class="nav navbar-nav navbar-right">
                             @each('vanti::partials.menu', $menuItems, 'item')
                         </ul>
