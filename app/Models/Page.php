@@ -98,7 +98,7 @@ class Page extends BaseModel
         $visibleStatus = $this->getVisibleStatus();
 
         $query->whereIn('status', $visibleStatus)->where('publish_start', '<=', $now)->where(function ($query) use ($now) {
-            $query->where('publish_end', '>', $now)->orWhere('publish_end', 0);
+            $query->where('publish_end', '>', $now)->orWhere('publish_end', null);
         });
 
         return $query;

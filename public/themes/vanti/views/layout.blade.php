@@ -35,14 +35,18 @@
                     <a class="navbar-brand" href="/">Brand</a>
                 </div>
 
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#">Link</a></li>
-                        <li><a href="#">Link</a></li>
-                        <li><a href="#">Link</a></li>
-                        <li><a href="#">Link</a></li>
-                    </ul>
-                </div>
+                @inject('menu', 'App\Repositories\MenuRepository')
+
+                @set('menuItems', $menu->getEntities(1))
+                @set('menuItems1', App\Models\Page::defaultOrder()->get()->toTree())
+
+                @if ($menuItems->count())
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                            @each('vanti::partials.menu', $menuItems, 'item')
+                        </ul>
+                    </div>
+                @endif
             </div>
         </nav>
 

@@ -75,6 +75,8 @@ class MenuRepository
      */
     public function create(array $input)
     {
+        $input['type'] = 'page';
+
         return $this->model->create($input);
     }
 
@@ -133,7 +135,8 @@ class MenuRepository
     }
 
     /**
-     * Get Form Fields.
+     * Get Menu Items.
+     *
      * @param  int $menuId
      * @return \Illuminate\Database\Eloquent\Collection
      */
@@ -207,5 +210,20 @@ class MenuRepository
         $this->itemModel->setNewOrder($items);
 
         return $this->getFields($menuId);
+    }
+
+    public function getEntities($menuId)
+    {
+        $entities = [];
+
+        foreach ($this->getItems($menuId) as $item) {
+            if ($item->type === 'page') {
+                $entities[] = (new \App\Entities\MenuElement($item->page))->fill();
+            } else {
+                $entities[] = (new \App\Entities\MenuElement($item))->fill();
+            }
+        }
+
+        return collect($entities);
     }
 }
