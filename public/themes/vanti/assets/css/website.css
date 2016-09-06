@@ -5936,6 +5936,34 @@ body {
     -webkit-transition-duration: 0.8s;
     transition-duration: 0.8s; }
 
+/*
+|--------------------------------------------------------------------------
+| PAGE
+|--------------------------------------------------------------------------
+*/
+.page-title:before {
+  box-sizing: border-box;
+  color: #ffdb24;
+  content: "[";
+  display: inline;
+  height: auto;
+  margin-right: 14px;
+  width: auto; }
+
+.page-title:after {
+  box-sizing: border-box;
+  color: #ffdb24;
+  content: "]";
+  display: inline;
+  height: auto;
+  margin-left: 14px;
+  width: auto; }
+
+/*
+|--------------------------------------------------------------------------
+| FOOTER
+|--------------------------------------------------------------------------
+*/
 .footer {
   padding: 40px 0;
   margin-top: 40px;

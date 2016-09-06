@@ -5,6 +5,7 @@
 */
 @import "variables";
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "mixins";
 
 body {
     padding-top: $navbar-height;
@@ -116,26 +117,8 @@ body {
     }
 
     .section-subtitle {
+        @include wrappedTitle();
         font-family: $font-open-sans;
-
-        &:before {
-            box-sizing: border-box;
-            color: $vanti-color;
-            content: "[";
-            display: inline;
-            height: auto;
-            margin-right: 14px;
-            width: auto;
-        }
-        &:after {
-            box-sizing: border-box;
-            color: $vanti-color;
-            content: "]";
-            display: inline;
-            height: auto;
-            margin-left: 14px;
-            width: auto;
-        }
     }
 
     p {
@@ -158,8 +141,6 @@ body {
         font-size: 50px;
     }
 }
-
-
 
 .service {
     text-align: center;
@@ -202,7 +183,20 @@ body {
     }
 }
 
+/*
+|--------------------------------------------------------------------------
+| PAGE
+|--------------------------------------------------------------------------
+*/
+.page-title {
+    @include wrappedTitle();
+}
 
+/*
+|--------------------------------------------------------------------------
+| FOOTER
+|--------------------------------------------------------------------------
+*/
 .footer {
     padding: 40px 0;
     margin-top: 40px;

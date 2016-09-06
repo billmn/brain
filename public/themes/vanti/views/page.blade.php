@@ -3,7 +3,7 @@
 @section('content')
 <div class="home-parallax" style="background: url(http://vantisrl.dev/wp-content/uploads/2014/09/03-2.jpg) center; margin-top: 0; padding: 40px 0;">
     <div class="overlay"></div>
-    <h1 class="overlay-title">{{ $page->title }}</h1>
+    <h1 class="page-title overlay-title">{{ $page->title }}</h1>
 </div>
 
 <div class="container">

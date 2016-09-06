@@ -1,0 +1,20 @@
+@mixin wrappedTitle($margin: 14px) {
+    &:before {
+        box-sizing: border-box;
+        color: $vanti-color;
+        content: "[";
+        display: inline;
+        height: auto;
+        margin-right: $margin;
+        width: auto;
+    }
+    &:after {
+        box-sizing: border-box;
+        color: $vanti-color;
+        content: "]";
+        display: inline;
+        height: auto;
+        margin-left: $margin;
+        width: auto;
+    }
+}
