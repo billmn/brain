@@ -17,9 +17,13 @@
             {{ Auth::user()->name }} <i class="dropdown icon"></i>
 
             <div class="menu">
-                {!! Form::open(['url' => 'logout']) !!}
-                    {!! Form::submit(trans('admin.auth.logout.button'), ['class' => 'ui item']) !!}
-                {!! Form::close() !!}
+                <a href="#" class="ui item" onclick="event.preventDefault(); $('#logout-form').submit();">
+                    {{ trans('admin.auth.logout.button') }}
+                </a>
+
+                <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                    {{ csrf_field() }}
+                </form>
             </div>
         </div>
     </div>
