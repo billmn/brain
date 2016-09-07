@@ -1,0 +1,109 @@
+.cms-content img {
+  height: auto;
+  display: block;
+  max-width: 100%; }
+
+.cms-content [data-oembed] {
+  float: none;
+  clear: both;
+  width: 100%;
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 25px;
+  height: 0; }
+  .cms-content [data-oembed] iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; }
+
+.content-table {
+  width: 100%;
+  max-width: 100%;
+  border: 1px solid #ddd;
+  background-color: #fff; }
+  .content-table caption {
+    color: #777777;
+    text-align: left;
+    padding-top: 8px;
+    padding-bottom: 8px; }
+  .content-table th {
+    text-align: left; }
+  .content-table > thead > tr > th,
+  .content-table > thead > tr > td,
+  .content-table > tbody > tr > th,
+  .content-table > tbody > tr > td,
+  .content-table > tfoot > tr > th,
+  .content-table > tfoot > tr > td {
+    padding: 8px;
+    line-height: 1.428571429;
+    vertical-align: top;
+    border-top: 1px solid #ddd; }
+  .content-table > thead > tr > th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #ddd; }
+  .content-table > caption + thead > tr:first-child > th,
+  .content-table > caption + thead > tr:first-child > td,
+  .content-table > colgroup + thead > tr:first-child > th,
+  .content-table > colgroup + thead > tr:first-child > td,
+  .content-table > thead:first-child > tr:first-child > th,
+  .content-table > thead:first-child > tr:first-child > td {
+    border-top: 0; }
+  .content-table > tbody + tbody {
+    border-top: 2px solid #ddd; }
+  .content-table > thead > tr > th,
+  .content-table > thead > tr > td,
+  .content-table > tbody > tr > th,
+  .content-table > tbody > tr > td,
+  .content-table > tfoot > tr > th,
+  .content-table > tfoot > tr > td {
+    border: 1px solid #ddd; }
+  .content-table > thead > tr > th,
+  .content-table > thead > tr > td {
+    border-bottom-width: 2px; }
+  .content-table > tbody > tr:nth-of-type(odd) {
+    background-color: #f9f9f9; }
+
+.content-table-wrapper {
+  margin: 10px 0;
+  overflow-x: auto;
+  min-height: 0.01%; }
+  @media screen and (max-width: 767px) {
+    .content-table-wrapper {
+      width: 100%;
+      margin-bottom: 15px;
+      overflow-y: hidden;
+      -ms-overflow-style: -ms-autohiding-scrollbar;
+      border: 1px solid #ddd; }
+      .content-table-wrapper > .content-table {
+        border: 0;
+        margin-bottom: 0; }
+        .content-table-wrapper > .content-table > thead > tr > th,
+        .content-table-wrapper > .content-table > thead > tr > td,
+        .content-table-wrapper > .content-table > tbody > tr > th,
+        .content-table-wrapper > .content-table > tbody > tr > td,
+        .content-table-wrapper > .content-table > tfoot > tr > th,
+        .content-table-wrapper > .content-table > tfoot > tr > td {
+          white-space: nowrap; }
+        .content-table-wrapper > .content-table > thead > tr > th:first-child,
+        .content-table-wrapper > .content-table > thead > tr > td:first-child,
+        .content-table-wrapper > .content-table > tbody > tr > th:first-child,
+        .content-table-wrapper > .content-table > tbody > tr > td:first-child,
+        .content-table-wrapper > .content-table > tfoot > tr > th:first-child,
+        .content-table-wrapper > .content-table > tfoot > tr > td:first-child {
+          border-left: 0; }
+        .content-table-wrapper > .content-table > thead > tr > th:last-child,
+        .content-table-wrapper > .content-table > thead > tr > td:last-child,
+        .content-table-wrapper > .content-table > tbody > tr > th:last-child,
+        .content-table-wrapper > .content-table > tbody > tr > td:last-child,
+        .content-table-wrapper > .content-table > tfoot > tr > th:last-child,
+        .content-table-wrapper > .content-table > tfoot > tr > td:last-child {
+          border-right: 0; }
+        .content-table-wrapper > .content-table > tbody > tr:last-child > th,
+        .content-table-wrapper > .content-table > tbody > tr:last-child > td,
+        .content-table-wrapper > .content-table > tfoot > tr:last-child > th,
+        .content-table-wrapper > .content-table > tfoot > tr:last-child > td {
+          border-bottom: 0; } }
+
+/*# sourceMappingURL=frontend.css.map */

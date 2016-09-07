@@ -3,8 +3,8 @@
     window['message'] = { info: "{{ session('info') }}", error: "{{ session('error') }}", success: "{{ session('success') }}", warning: "{{ session('warning') }}" };
 
     var UPLOADS_BASEPATH = 'files';
-    var VENDORS_BASEPATH = '/assets/vendor';
+    var PACKAGES_BASEPATH = '/packages';
     var IMAGE_PLACEHOLDER = '/assets/img/image.jpg';
-    var CKEDITOR_BASEPATH = VENDORS_BASEPATH + '/ckeditor/';
-    var CKEDITOR_PLUGINS_BASEPATH = VENDORS_BASEPATH + '/ckeditor_plugins/';
+    var CKEDITOR_BASEPATH = PACKAGES_BASEPATH + '/ckeditor/';
+    var CKEDITOR_PLUGINS_BASEPATH = PACKAGES_BASEPATH + '/ckeditor_plugins/';
 </script>
