@@ -1,52 +1,62 @@
 @extends('vanti::layout')
 
 @section('content')
-<div class="home-carousel">
-    <div class="owl-carousel owl-theme">
-        @for ($i = 1; $i <= 5; $i++)
-            <div class="item owl-lazy" data-src="{{ Theme::asset('img/cover.jpg') }}">
-                <div class="overlay"></div>
+    @inject('menuRepo', 'App\Repositories\MenuRepository')
 
-                <div class="slider-caption">
-                    <h2 class="title">PRODUZIONE E COMMERCIO INERTI {{ $i }}</h2>
+    @set('menuIntro', $menuRepo->findByName('intro'))
+    @set('menuServizi', $menuRepo->findByName('servizi'))
+
+    <div class="home-carousel">
+        <div class="owl-carousel owl-theme">
+            @for ($i = 1; $i <= 5; $i++)
+                <div class="item owl-lazy" data-src="{{ Theme::asset('img/cover.jpg') }}">
+                    <div class="overlay"></div>
+
+                    <div class="slider-caption">
+                        <h2 class="title">PRODUZIONE E COMMERCIO INERTI {{ $i }}</h2>
+                    </div>
                 </div>
-            </div>
-        @endfor
-    </div>
-</div>
-
-<div class="container">
-    <section class="home-section">
-        <div class="title">
-            <h2>PERCHÈ SCEGLIERCI?</h2>
-            <hr>
+            @endfor
         </div>
+    </div>
 
-        <h3 class="section-subtitle">Garanzia di successo</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    </section>
-</div>
+    <div class="container">
+        <section class="home-section">
+            <div class="title">
+                <h2 class="text-uppercase">{{ $menuIntro->title }}</h2>
+                <hr>
+            </div>
 
-<div class="home-parallax" style="background: url({{ Theme::asset('img/excavator.jpg') }}) fixed center;">
-    <div class="overlay"></div>
-    <h1 class="overlay-title">I NOSTRI SERVIZI</h1>
-</div>
+            @foreach ($menuRepo->getItems($menuIntro->id) as $item)
+                <h3 class="section-subtitle">{{ $item->page->title }}</h3>
+                <div class="section-content">{!! $item->page->excerpt_or_content !!}</div>
+            @endforeach
+        </section>
+    </div>
 
-<div class="container">
-    <div class="row">
-        @inject('menuRepo', 'App\Repositories\MenuRepository')
-        @set('menu', $menuRepo->findByName('servizi'))
+    <div class="home-parallax" style="background: url({{ Theme::asset('img/excavator.jpg') }}) fixed center;">
+        <div class="overlay"></div>
+        <h1 class="overlay-title text-uppercase">{{ $menuServizi->title }}</h1>
+    </div>
 
-        @foreach ($menuRepo->getItems($menu->id) as $item)
+    <div class="container">
+        @foreach ($menuRepo->getItems($menuServizi->id) as $item)
+            @if ($loop->first or $loop->iteration % 4 == 0)
+                <div class="row">
+            @endif
+
             <div class="service col-md-4">
                 <div class="img-wrapper">
-                    <img class="img-responsive" src="http://vantisrl.dev/wp-content/uploads/2014/09/03-2.jpg">
+                    <img class="img-responsive" src="{{ Theme::asset('img/service.jpg') }}">
                 </div>
 
-                <h4>{{ $item->page->title }}</h4>
-                <p>{!! $item->page->excerpt_or_content !!}</p>
+                <h4 class="text-uppercase">{{ $item->page->title }}</h4>
+                <div class="service-content">{!! $item->page->excerpt_or_content !!}</div>
             </div>
+
+            @if ($loop->iteration % 3 == 0 or $loop->last)
+                </div>
+            @endif
         @endforeach
     </div>
-</div>
 @endsection

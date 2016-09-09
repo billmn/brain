@@ -139,7 +139,7 @@ body {
         font-family: $font-open-sans;
     }
 
-    p {
+    .section-content {
         color: #787878;
         font-size: 22px;
         font-weight: 300;
@@ -162,42 +162,49 @@ body {
 
 .service {
     text-align: center;
-    transition-duration: 0.8s;
+    margin-bottom: 20px;
 
+    > a {
+        color: inherit;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
     .img-wrapper {
+        overflow: hidden;
         position: relative;
-    }
-    .img-wrapper:after{
-        content:'';
-        position:absolute;
-        width:100%;
-        height:100%;
-        top:0;
-        left:0;
-        -moz-transition: all 0.3s ease;
-        -webkit-transition: all 0.3s ease;
-        transition: all 0.3s ease;
-    }
-    &:hover .img-wrapper:after {
-        display:block;
-        width: 100%;
-        height: 100%;
-        background: rgba(12, 12, 12, 0.4);
-    }
-
-    img {
         margin-bottom: 20px;
         border-bottom: 3px solid $vanti-color;
-    }
 
-    p {
-        color: #787878;
+        img {
+            transition: all .2s ease-in-out;
+        }
+        &:after{
+            top: 0;
+            left: 0;
+            content: '';
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            transition: all 0.3s ease;
+        }
     }
 
     &:hover {
-        margin-top: -10px;
-        box-shadow: 5px 5px 0px 0px #efefef;
-        transition-duration: 0.8s;
+        .img-wrapper img {
+            transform: scale(1.1);
+        }
+        .img-wrapper:after {
+            display: block;
+            width: 100%;
+            height: 100%;
+            background: rgba(12, 12, 12, 0.4);
+        }
+    }
+
+    .service-content {
+        color: #787878;
     }
 }
 

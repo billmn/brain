@@ -5908,7 +5908,7 @@ body {
       height: auto;
       margin-left: 14px;
       width: auto; }
-  .home-section p {
+  .home-section .section-content {
     color: #787878;
     font-size: 22px;
     font-weight: 300;
@@ -5926,34 +5926,38 @@ body {
 
 .service {
   text-align: center;
-  -webkit-transition-duration: 0.8s;
-  transition-duration: 0.8s; }
+  margin-bottom: 20px; }
+  .service > a {
+    color: inherit; }
+    .service > a:hover {
+      text-decoration: none; }
   .service .img-wrapper {
-    position: relative; }
-  .service .img-wrapper:after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    -webkit-transition: all 0.3s ease;
-    transition: all 0.3s ease; }
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 20px;
+    border-bottom: 3px solid #00CCFF; }
+    .service .img-wrapper img {
+      -webkit-transition: all .2s ease-in-out;
+      transition: all .2s ease-in-out; }
+    .service .img-wrapper:after {
+      top: 0;
+      left: 0;
+      content: '';
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      -webkit-transition: all 0.3s ease;
+      transition: all 0.3s ease; }
+  .service:hover .img-wrapper img {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1); }
   .service:hover .img-wrapper:after {
     display: block;
     width: 100%;
     height: 100%;
     background: rgba(12, 12, 12, 0.4); }
-  .service img {
-    margin-bottom: 20px;
-    border-bottom: 3px solid #00CCFF; }
-  .service p {
+  .service .service-content {
     color: #787878; }
-  .service:hover {
-    margin-top: -10px;
-    box-shadow: 5px 5px 0px 0px #efefef;
-    -webkit-transition-duration: 0.8s;
-    transition-duration: 0.8s; }
 
 /*
 |--------------------------------------------------------------------------
