@@ -41,7 +41,6 @@ elixir(mix => {
             'public/packages/ckeditor/ckeditor.js',
             'public/packages/ckeditor/adapters/jquery.js',
             'semantic/dist/semantic.js',
-            'resources/assets/js/classes/_filemanager.js'
         ], 'public/assets/js/vendor.js', './')
 
         .copy('resources/assets/img', 'public/assets/img')

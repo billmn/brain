@@ -1,6 +1,8 @@
-class _FileManager {
-    constructor() {
+"use strict";
 
+class FileManager {
+    constructor() {
+        console.log("Filemanager is ready!");
     }
     open(from, options) {
         if (typeof options == 'undefined') {
@@ -56,3 +58,5 @@ class _FileManager {
         field.trigger('change');
     }
 }
+
+module.exports = FileManager;
