@@ -26,7 +26,7 @@ class MenuUpdateRequest extends Request
         $id = $this->route()->getParameter('menu');
 
         return [
-            'name' => "required|unique:menu,name,{$id}",
+            'name' => "required|unique:menus,name,{$id}",
         ];
     }
 }

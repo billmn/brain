@@ -87,8 +87,6 @@ class MenuRepository
      */
     public function create(array $input)
     {
-        $input['type'] = 'page';
-
         return $this->model->create($input);
     }
 
