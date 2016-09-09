@@ -33,7 +33,5 @@
         <script src="/assets/js/admin.js"></script>
 
         @yield('scripts')
-
-        @include('admin.footer')
     </body>
 </html>
