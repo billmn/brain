@@ -12,6 +12,7 @@ composer.phar
 composer.lock
 .php_cs.cache
 storage/debugbar
+storage/glide
 public/themes/*
 !public/themes/vanti/
 !public/themes/default/

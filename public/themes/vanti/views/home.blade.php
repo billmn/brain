@@ -4,7 +4,7 @@
     @inject('menuRepo', 'App\Repositories\MenuRepository')
 
     @set('menuIntro', $menuRepo->findByName('intro'))
-    @set('menuServizi', $menuRepo->findByName('servizi'))
+    @set('menuService', $menuRepo->findByName('servizi'))
 
     <div class="home-carousel">
         <div class="owl-carousel owl-theme">
@@ -36,18 +36,18 @@
 
     <div class="home-parallax" style="background: url({{ Theme::asset('img/excavator.jpg') }}) fixed center;">
         <div class="overlay"></div>
-        <h1 class="overlay-title text-uppercase">{{ $menuServizi->title }}</h1>
+        <h1 class="overlay-title text-uppercase">{{ $menuService->title }}</h1>
     </div>
 
     <div class="container">
-        @foreach ($menuRepo->getItems($menuServizi->id) as $item)
+        @foreach ($menuRepo->getItems($menuService->id) as $item)
             @if ($loop->first or $loop->iteration % 4 == 0)
                 <div class="row">
             @endif
 
             <div class="service col-md-4">
                 <div class="img-wrapper">
-                    <img class="img-responsive" src="{{ Theme::asset('img/service.jpg') }}">
+                    <img class="img-responsive" src="{{ $item->page->primary_image ? resample($item->page->primary_image, ['w' => 400]) : Theme::asset('img/service.jpg') }}">
                 </div>
 
                 <h4 class="text-uppercase">{{ $item->page->title }}</h4>

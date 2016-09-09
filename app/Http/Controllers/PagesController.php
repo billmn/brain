@@ -76,7 +76,7 @@ class PagesController extends Controller
     {
         $server = ServerFactory::create([
             'cache' => storage_path('glide'),
-            'source' => app('filesystem')->disk('public')->getDriver(),
+            'source' => public_path('files'),
             'response' => app()->make(LaravelResponseFactory::class),
         ]);
 
