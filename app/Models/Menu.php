@@ -11,7 +11,6 @@ class Menu extends BaseModel
      */
     protected $fillable = [
         'enabled',
-        'type',
         'name',
         'title',
         'description',

@@ -96,6 +96,18 @@ class PageRepository
         });
     }
 
+    public function getTreeAsList($depthSymbol = '--')
+    {
+        $tree = [];
+        $pages = $this->all()->toFlatTree();
+
+        foreach ($pages as $page) {
+            $tree[$page->id] = str_repeat($depthSymbol, $page->depth).' '.$page->title;
+        }
+
+        return $tree;
+    }
+
     /**
      * Find a Page by ID.
      *

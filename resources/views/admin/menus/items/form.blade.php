@@ -24,13 +24,9 @@
 
     <div class="modal-content with-menu">
         {!! Form::hidden('menu_id', $menu->id) !!}
+        {!! Form::hidden('type') !!}
 
         {!! Form::errors() !!}
-
-        <div class="field">
-            {!! Form::label(trans('admin.menus_items.fields.type')) !!}
-            {!! Form::select('type', $typeList) !!}
-        </div>
 
         <div class="two fields">
             <div class="field">
@@ -43,27 +39,29 @@
             </div>
         </div>
 
-        <div id="link_cont">
-            <div class="field">
-                {!! Form::label(trans('admin.menus_items.fields.label')) !!}
-                {!! Form::text('label', null, ['autofocus' => true]) !!}
+        @if ($item->type === 'page')
+            <div id="page_cont">
+                <div class="field">
+                    {!! Form::label(trans('admin.menus_items.fields.page_id')) !!}
+                    {!! Form::select('page_id', $pageList) !!}
+                </div>
+                <div class="field">
+                    {!! Form::label(trans('admin.menus_items.fields.sublevels')) !!}
+                    {!! Form::number('sublevels', null, ['min' => 0, 'autocomplete' => 'off']) !!}
+                </div>
             </div>
-            <div class="field">
-                {!! Form::label(trans('admin.menus_items.fields.value')) !!}
-                {!! Form::text('value') !!}
+        @else
+            <div id="link_cont">
+                <div class="field">
+                    {!! Form::label(trans('admin.menus_items.fields.label')) !!}
+                    {!! Form::text('label', null, ['autofocus' => true]) !!}
+                </div>
+                <div class="field">
+                    {!! Form::label(trans('admin.menus_items.fields.value')) !!}
+                    {!! Form::text('value') !!}
+                </div>
             </div>
-        </div>
-
-        <div id="page_cont">
-            <div class="field">
-                {!! Form::label(trans('admin.menus_items.fields.page_id')) !!}
-                {!! Form::text('page_id') !!}
-            </div>
-            <div class="field">
-                {!! Form::label(trans('admin.menus_items.fields.sublevels')) !!}
-                {!! Form::text('sublevels') !!}
-            </div>
-        </div>
+        @endif
     </div>
     {!! Form::close() !!}
 </div>

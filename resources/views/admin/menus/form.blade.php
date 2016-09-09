@@ -34,12 +34,12 @@
         </div>
 
         <div class="ui bottom attached tab segment" data-tab="items">
-            <a class="ui green button modal-iframe" href="{{ route('menus.items.create', $menu) }}">
-                <i class="plus icon"></i> {{ trans('admin.actions.add') }} {{ trans('admin.menus_items.sing') }}
+            <a class="ui green button modal-iframe" href="{{ route('menus.items.create', ['menu' => $menu, 'type' => 'link']) }}">
+                <i class="linkify icon"></i> {{ trans('admin.actions.add') }} {{ trans('admin.menus_items.types.link') }}
             </a>
 
-            <a class="ui green button modal-iframe" href="{{ route('menus.items.create', $menu) }}">
-                <i class="plus icon"></i> {{ trans('admin.actions.add') }} {{ trans('admin.menus_items.sing') }}
+            <a class="ui green button modal-iframe" href="{{ route('menus.items.create', ['menu' => $menu, 'type' => 'page']) }}">
+                <i class="file icon"></i> {{ trans('admin.actions.add') }} {{ trans('admin.menus_items.types.page') }}
             </a>
 
             <div id="fields_tree" class="tree-cont block-style"></div>

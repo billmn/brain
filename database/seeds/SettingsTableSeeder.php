@@ -12,7 +12,7 @@ class SettingsTableSeeder extends Seeder
     public function run()
     {
         settings([
-            'theme'    => 'default',
+            'theme'    => 'vanti',
             'timezone' => 'Europe/Rome',
 
             'website' => [

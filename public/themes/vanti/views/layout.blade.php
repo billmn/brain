@@ -35,10 +35,9 @@
                     <a class="navbar-brand" href="/">VANTI</a>
                 </div>
 
-                @inject('menu', 'App\Repositories\MenuRepository')
-
-                @set('menuItems', $menu->getEntities(1))
-                @set('menuItems1', App\Models\Page::defaultOrder()->get()->toTree())
+                @inject('menuRepo', 'App\Repositories\MenuRepository')
+                @set('menu', $menuRepo->findByName('top'))
+                @set('menuItems', $menuRepo->getEntities($menu->id))
 
                 @if ($menuItems->count())
                     <div id="menu" class="collapse navbar-collapse">

@@ -24,7 +24,7 @@ class Update1 extends Migration
             $table->text('gallery')->nullable();
             $table->text('content');
             $table->text('excerpt')->nullable();
-            $table->boolean('custom_excerpt');
+            $table->boolean('custom_excerpt')->default(false);
             $table->string('template')->nullable();
             $table->integer('form_id')->unsigned()->nullable();
             $table->timestamp('publish_start')->useCurrent();
@@ -36,10 +36,9 @@ class Update1 extends Migration
 
         Schema::create('menus', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('type');
             $table->boolean('enabled');
             $table->string('name')->unique();
-            $table->string('title');
+            $table->string('title')->nullable();
             $table->text('description')->nullable();
             $table->timestamps();
         });
@@ -53,7 +52,7 @@ class Update1 extends Migration
             $table->integer('page_id')->unsigned()->nullable()->index();
             $table->integer('sublevels')->unsigned()->nullable();
             $table->integer('order_column')->unsigned();
-            $table->timestamp('visible_from')->useCurrent();
+            $table->timestamp('visible_from')->nullable();
             $table->timestamp('visible_to')->nullable();
             $table->timestamps();
 

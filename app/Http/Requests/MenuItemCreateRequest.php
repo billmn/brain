@@ -27,9 +27,10 @@ class MenuItemCreateRequest extends Request
         $types = implode(',', array_keys($types));
 
         return [
-            'menu_id' => 'required',
-            'type'    => "required|in:{$types}",
-            'label'   => 'required',
+            'menu_id'   => 'required',
+            'type'      => "required|in:{$types}",
+            'label'     => 'required_if:type,link',
+            'sublevels' => 'integer|min:0',
         ];
     }
 }

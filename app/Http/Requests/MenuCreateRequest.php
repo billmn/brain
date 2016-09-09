@@ -24,8 +24,7 @@ class MenuCreateRequest extends Request
     public function rules()
     {
         return [
-            'name'  => 'required|unique:forms',
-            'title' => 'required',
+            'name' => 'required|unique:forms',
         ];
     }
 }

@@ -69,6 +69,17 @@ class MenuRepository
     }
 
     /**
+     * Find a Menu by name.
+     *
+     * @param  string $name
+     * @return \App\Models\Menu
+     */
+    public function findByName($name)
+    {
+        return $this->model->where('name', $name)->firstOrFail();
+    }
+
+    /**
      * Create a Menu.
      *
      * @param  array  $input
@@ -143,7 +154,7 @@ class MenuRepository
      */
     public function getItems($menuId)
     {
-        return $this->itemModel->where('menu_id', $menuId)->ordered()->get();
+        return $this->itemModel->with('page')->where('menu_id', $menuId)->ordered()->get();
     }
 
     /**

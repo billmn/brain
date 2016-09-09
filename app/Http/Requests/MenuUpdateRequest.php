@@ -23,12 +23,10 @@ class MenuUpdateRequest extends Request
      */
     public function rules()
     {
-        $types = implode(',', array_keys($types));
         $id = $this->route()->getParameter('menu');
 
         return [
-            'name'  => "required|unique:menu,name,{$id}",
-            'title' => 'required',
+            'name' => "required|unique:menu,name,{$id}",
         ];
     }
 }

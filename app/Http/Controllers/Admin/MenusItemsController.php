@@ -3,19 +3,23 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests;
+use App\Models\MenuItem;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repositories\MenuRepository;
+use App\Repositories\PageRepository;
 
 class MenusItemsController extends Controller
 {
     protected $menuRepo;
+    protected $pageRepo;
 
-    public function __construct(MenuRepository $menuRepo)
+    public function __construct(MenuRepository $menuRepo, PageRepository $pageRepo)
     {
         parent::__construct();
 
         $this->menuRepo = $menuRepo;
+        $this->pageRepo = $pageRepo;
     }
 
     /**
@@ -28,6 +32,10 @@ class MenusItemsController extends Controller
         $nodes = [];
 
         foreach ($this->menuRepo->getItems($menuId) as $item) {
+            if ($item->type === MenuItem::TYPE_PAGE) {
+                $item->label = $item->page->title;
+            }
+
             $nodes[] = [
                 'id' => $item->id,
                 'name' => $item->label,
@@ -42,13 +50,15 @@ class MenusItemsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($menuId)
+    public function create(Request $request, $menuId)
     {
         $menu = $this->menuRepo->find($menuId);
         $item = $this->menuRepo->itemModel();
-        $typeList = $this->menuRepo->getItemTypeList();
+        $pageList = $this->pageRepo->getTreeAsList('--');
 
-        return view('admin.menus.items.form', compact('menu', 'item', 'typeList'));
+        $item->type = $request->get('type');
+
+        return view('admin.menus.items.form', compact('menu', 'item', 'pageList'));
     }
 
     /**
@@ -86,9 +96,9 @@ class MenusItemsController extends Controller
     {
         $menu = $this->menuRepo->find($menuId);
         $item = $this->menuRepo->findItem($itemId);
-        $typeList = $this->menuRepo->getItemTypeList();
+        $pageList = $this->pageRepo->getTreeAsList('&emsp;');
 
-        return view('admin.menus.items.form', compact('menu', 'item', 'typeList'));
+        return view('admin.menus.items.form', compact('menu', 'item', 'pageList'));
     }
 
     /**
