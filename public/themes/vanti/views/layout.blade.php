@@ -20,6 +20,8 @@
 
         <link href="https://fonts.googleapis.com/css?family=Monda" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="{{ Theme::asset('css/website.css') }}">
+
+        {!! settings('website.styles') !!}
     </head>
     <body>
         <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -52,10 +54,14 @@
         @yield('content')
 
         <section class="footer">
-            <div class="footer-content">{{ settings('website.footer') }}</div>
+            <div class="footer-content">
+                {!! settings('website.footer') !!}
+            </div>
         </section>
 
         <script type="text/javascript" src="{{ Theme::asset('js/plugins.js') }}"></script>
         <script type="text/javascript" src="{{ Theme::asset('js/website.js') }}"></script>
+
+        {!! settings('website.scripts') !!}
     </body>
 </html>

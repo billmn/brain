@@ -9,7 +9,7 @@
         </ul>
     </li>
 @else
-    <li>
+    <li class="{{ Request::url() == $item->url ? 'active' : 'inactive' }}">
         <a href="{{ $item->url }}">{{ $item->label }}</a>
     </li>
 @endif

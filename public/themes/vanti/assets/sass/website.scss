@@ -30,6 +30,17 @@ body {
         font-weight: bold;
         letter-spacing: 3.5px;
     }
+
+    .navbar-nav {
+        a {
+            font-size: 13px;
+        }
+        .active > a,
+        .active > a:hover,
+        .active > a:focus {
+            background-color: transparent !important;
+        }
+    }
 }
 .overlay {
     top: 0;
@@ -217,6 +228,14 @@ $carousel-title-size: 58px;
 .page-title {
     @include wrappedTitle();
 }
+.page-content {
+    > h1:first-child,
+    > h2:first-child,
+    > h3:first-child,
+    > h4:first-child {
+        margin-top: 0;
+    }
+}
 
 /*
 |--------------------------------------------------------------------------
@@ -233,6 +252,7 @@ $carousel-title-size: 58px;
     border-bottom: $footer-border solid $vanti-color;
 
     > .footer-content {
+        padding: 0 20px;
         @include vertical-align();
     }
 }

@@ -3,5 +3,8 @@
     "name": "Vanti Theme",
     "author": "John Doe",
     "description": "This is the default theme.",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "templates": {
+        "vanti::templates.contacts": "Pagina contatti"
+    }
 }
