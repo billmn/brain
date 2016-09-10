@@ -3,7 +3,7 @@
 @section('content')
     <div class="home-parallax" style="background: url({{ Theme::asset('img/excavator.jpg') }}) center; margin-top: 0; padding: 40px 0;">
         <div class="overlay"></div>
-        <h1 class="page-title overlay-title">{{ $page->title }}</h1>
+        <h1 class="page-title overlay-title text-uppercase">{{ $page->title }}</h1>
     </div>
 
     <div class="container">
