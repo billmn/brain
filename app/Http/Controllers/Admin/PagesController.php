@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests;
+use App\Services\Theme;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repositories\PageRepository;
@@ -15,22 +16,20 @@ class PagesController extends Controller
     protected $formList;
     protected $templates;
 
-    public function __construct(PageRepository $pageRepo, FormRepository $formRepo)
+    public function __construct(PageRepository $pageRepo, FormRepository $formRepo, Theme $theme)
     {
         parent::__construct();
 
-        // $this->theme = $theme;
+        $this->theme = $theme;
         $this->pageRepo = $pageRepo;
 
         $this->formList = [
             false => trans('admin.pages.default_form'),
         ] + $formRepo->enabled()->pluck('name', 'id')->toArray();
 
-        // $this->templates = [
-        //     false => trans('admin.pages.default_tpl'),
-        // ] + $this->theme->getTemplates();
-
-        $this->templates = [];
+        $this->templates = [
+            false => trans('admin.pages.default_tpl'),
+        ] + $this->theme->getTemplates();
     }
 
     /**
