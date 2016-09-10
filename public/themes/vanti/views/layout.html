@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -19,9 +18,9 @@
         <![endif]-->
 
         <link href="https://fonts.googleapis.com/css?family=Monda" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="{{ Theme::asset('css/website.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ Theme.asset('css/website.css') }}">
 
-        {!! settings('website.styles') !!}
+        {{ settings('website.styles')|raw }}
     </head>
     <body>
         <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -37,31 +36,32 @@
                     <a class="navbar-brand" href="/">VANTI</a>
                 </div>
 
-                @inject('menuRepo', 'App\Repositories\MenuRepository')
-                @set('menu', $menuRepo->findByName('top'))
-                @set('menuItems', $menuRepo->getEntities($menu->id))
+                {% set menu = Menu.findByName('top') %}
+                {% set menuItems = Menu.getEntities(menu.id) %}
 
-                @if ($menuItems->count())
+                {% if menuItems.count %}
                     <div id="menu" class="collapse navbar-collapse">
                         <ul class="nav navbar-nav navbar-right">
-                            @each('vanti::partials.menu', $menuItems, 'item')
+                            {% for item in menuItems %}
+                                {{ include('vanti::partials.menu', { item: item }) }}
+                            {% endfor %}
                         </ul>
                     </div>
-                @endif
+                {% endif %}
             </div>
         </nav>
 
-        @yield('content')
+        {% block content %}{% endblock %}
 
         <section class="footer">
             <div class="footer-content">
-                {!! settings('website.footer') !!}
+                {{ settings('website.footer')|raw }}
             </div>
         </section>
 
-        <script type="text/javascript" src="{{ Theme::asset('js/plugins.js') }}"></script>
-        <script type="text/javascript" src="{{ Theme::asset('js/website.js') }}"></script>
+        <script type="text/javascript" src="{{ Theme.asset('js/plugins.js') }}"></script>
+        <script type="text/javascript" src="{{ Theme.asset('js/website.js') }}"></script>
 
-        {!! settings('website.scripts') !!}
+        {{ settings('website.scripts')|raw }}
     </body>
 </html>

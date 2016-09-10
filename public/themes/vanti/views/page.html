@@ -1,0 +1,32 @@
+{% extends 'vanti::layout' %}
+
+{% block content %}
+    <div class="home-parallax" style="background: url({{ Theme.asset('img/excavator.jpg') }}) center; margin-top: 0; padding: 40px 0;">
+        <div class="overlay"></div>
+        <h1 class="page-title overlay-title text-uppercase">{{ page.title }}</h1>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            {% if page.primary_image %}
+                <div class="col-md-4">
+                    <img class="img-responsive" src="{{ resample(page.primary_image) }}">
+                </div>
+            {% endif %}
+
+            <div class="page-content {{ page.primary_image ? 'col-md-8' : 'col-md-12' }}">
+                {{ page.content|raw }}
+            </div>
+        </div>
+
+        {% set descendants = page.descendants %}
+
+        {% if descendants %}
+            <div class="page-descendants">
+                {% for descendant in descendants %}
+                    {{ include('vanti::partials.page_grid', { page: descendant }) }}
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
