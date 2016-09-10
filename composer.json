@@ -14,7 +14,8 @@
         "spatie/eloquent-sortable": "^2.1",
         "barryvdh/laravel-elfinder": "^0.3.7",
         "caffeinated/themes": "^3.0",
-        "league/glide-laravel": "^1.0"
+        "league/glide-laravel": "^1.0",
+        "rcrowe/twigbridge": "^0.9.3"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

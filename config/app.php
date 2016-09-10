@@ -166,6 +166,7 @@ return [
         /*
          * Package Service Providers...
          */
+        TwigBridge\ServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Caffeinated\Themes\ThemesServiceProvider::class,
@@ -232,6 +233,7 @@ return [
         /*
          * Package Facades...
          */
+        'Twig' => TwigBridge\Facade\Twig::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
         'Theme' => Caffeinated\Themes\Facades\Theme::class,
