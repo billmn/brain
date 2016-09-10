@@ -52,7 +52,7 @@
         @yield('content')
 
         <section class="footer">
-            <p>{{ settings('website.footer') }}</p>
+            <div class="footer-content">{{ settings('website.footer') }}</div>
         </section>
 
         <script type="text/javascript" src="{{ Theme::asset('js/plugins.js') }}"></script>

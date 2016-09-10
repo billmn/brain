@@ -21,6 +21,7 @@ elixir(mix => {
     .styles([
         'node_modules/owl.carousel/dist/assets/owl.carousel.min.css',
         'node_modules/owl.carousel/dist/assets/owl.theme.default.min.css',
+        'node_modules/animate.css/animate.min.css',
         'assets/build/website.css'
     ], 'assets/css/website.css', './')
 

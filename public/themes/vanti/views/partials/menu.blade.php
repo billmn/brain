@@ -9,7 +9,7 @@
         </ul>
     </li>
 @else
-    <li class="">
+    <li>
         <a href="{{ $item->url }}">{{ $item->label }}</a>
     </li>
 @endif

@@ -12,7 +12,7 @@
                 <div class="item owl-lazy" data-src="{{ Theme::asset('img/cover.jpg') }}">
                     <div class="overlay"></div>
 
-                    <div class="slider-caption">
+                    <div class="slider-caption animated fadeInUp">
                         <h2 class="title">PRODUZIONE E COMMERCIO INERTI {{ $i }}</h2>
                     </div>
                 </div>
@@ -34,29 +34,14 @@
         </section>
     </div>
 
-    <div class="home-parallax" style="background: url({{ Theme::asset('img/excavator.jpg') }}) fixed center;">
+    <div id="service_section" class="home-parallax" style="background: url({{ Theme::asset('img/excavator.jpg') }}) fixed center;">
         <div class="overlay"></div>
         <h1 class="overlay-title text-uppercase">{{ $menuService->title }}</h1>
     </div>
 
     <div class="container">
         @foreach ($menuRepo->getItems($menuService->id) as $item)
-            @if ($loop->first or $loop->iteration % 4 == 0)
-                <div class="row">
-            @endif
-
-            <div class="service col-md-4">
-                <div class="img-wrapper">
-                    <img class="img-responsive" src="{{ $item->page->primary_image ? resample($item->page->primary_image, ['w' => 400]) : Theme::asset('img/service.jpg') }}">
-                </div>
-
-                <h4 class="text-uppercase">{{ $item->page->title }}</h4>
-                <div class="service-content">{!! $item->page->excerpt_or_content !!}</div>
-            </div>
-
-            @if ($loop->iteration % 3 == 0 or $loop->last)
-                </div>
-            @endif
+            @include('vanti::partials.page_grid', ['page' => $item->page])
         @endforeach
     </div>
 @endsection
