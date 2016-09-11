@@ -4,6 +4,12 @@
     "author": "John Doe",
     "description": "This is the default theme.",
     "version": "1.0.0",
+    "labels": {
+        "company": {
+            "type": "text",
+            "label": "Nome azienda"
+        }
+    },
     "templates": {
         "vanti::templates.contacts": "Pagina contatti"
     }

@@ -15,6 +15,9 @@
     <a class="item" href="{{ route('forms.index') }}">
         <i class="checkmark box icon"></i> {{ trans('admin.forms.title') }}
     </a>
+    <a class="item" href="{{ route('labels.index') }}">
+        <i class="tag icon"></i> {{ trans('admin.labels.title') }}
+    </a>
     <a class="item" href="{{ route('themes.index') }}">
         <i class="eyedropper icon"></i> {{ trans('admin.themes.title') }}
     </a>

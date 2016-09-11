@@ -184,6 +184,9 @@ return [
             'last',
             'settings',
             'resample',
+            'label' => function($name, $default = null) {
+                return app(App\Services\Theme::class)->label($name, $default);
+            },
         ],
 
         /*

@@ -25,6 +25,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
     Route::resource('forms.fields', 'FormsFieldsController');
     Route::post('forms/fields/move', ['as' => 'forms.fields.move', 'uses' => 'FormsFieldsController@move']);
 
+    Route::resource('labels', 'LabelsController');
     Route::resource('themes', 'ThemesController');
 
     Route::group(['prefix' => 'settings', 'namespace' => 'Settings'], function () {

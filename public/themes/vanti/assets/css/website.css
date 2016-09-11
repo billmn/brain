@@ -5857,7 +5857,7 @@ body {
     transform: translateY(-50%); }
     .home-carousel .item .slider-caption .title {
       margin: 0;
-      font-size: 58px; }
+      font-size: 50px; }
 
 .home-carousel .owl-nav {
   width: 100%;
@@ -5870,7 +5870,7 @@ body {
     margin: -50px 0 0;
     padding: 0;
     position: absolute;
-    font-size: 52px;
+    font-size: 44px;
     background: transparent; }
   .home-carousel .owl-nav .owl-prev {
     left: 5%; }

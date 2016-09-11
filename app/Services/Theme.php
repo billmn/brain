@@ -32,4 +32,51 @@ class Theme extends CaffeinatedThemes
     {
         return $this->getProperty("{$this->active}::templates", []);
     }
+
+    /**
+     * Get label value.
+     *
+     * @param  string $name
+     * @param  mixed  $default
+     * @return mixed
+     */
+    public function label($name, $default = null)
+    {
+        return settings("{$this->active}::labels.{$name}", $default);
+    }
+
+    /**
+     * Get theme labels.
+     *
+     * @return array
+     */
+    public function getLabels()
+    {
+        return $this->getProperty("{$this->active}::labels", []);
+    }
+
+    /**
+     * Get labels values.
+     *
+     * @return array
+     */
+    public function getLabelsValues()
+    {
+        return settings("{$this->active}::labels", []);
+    }
+
+    /**
+     * Set labels values.
+     *
+     * @param  array $labels
+     * @return array
+     */
+    public function setLabelsValues(array $labels)
+    {
+        if (empty(array_filter($labels))) {
+            return settings()->delete("{$this->active}::labels");
+        }
+
+        return settings(["{$this->active}::labels" => $labels]);
+    }
 }
