@@ -2,16 +2,17 @@
 
 {% block content %}
     {% set menuIntro = Menu.findByName('intro') %}
+    {% set menuSlider = Menu.findByName('slider') %}
     {% set menuService = Menu.findByName('servizi') %}
 
     <div class="home-carousel">
         <div class="owl-carousel owl-theme">
-            {% for i in 1..4 %}
-                <div class="item owl-lazy" data-src="{{ Theme.asset('img/cover.jpg') }}">
+            {% for item in Menu.getItems(menuSlider.id) %}
+                <div class="item owl-lazy" data-src="{{ resample(item.page.secondary_image ?: item.page.primary_image) }}">
                     <div class="overlay"></div>
 
                     <div class="slider-caption animated fadeInUp">
-                        <h2 class="title">PRODUZIONE E COMMERCIO INERTI {{ i }}</h2>
+                        <h2 class="title text-uppercase">{{ item.page.title }}</h2>
                     </div>
                 </div>
             {% endfor %}

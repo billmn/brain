@@ -79,6 +79,11 @@ class MenuItem extends BaseModel implements Sortable
         $this->attributes['name'] = str_slug($value, '_');
     }
 
+    public function setSublevelsAttribute($value)
+    {
+        $this->attributes['sublevels'] = ($value === '') ? null : $value;
+    }
+
     public function setVisibleFromAttribute($value)
     {
         return empty($value) ? null : $this->asDateTime($value);
