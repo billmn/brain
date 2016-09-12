@@ -3,8 +3,9 @@
 namespace App\Http\Requests;
 
 use App\Repositories\FormRepository;
+use Illuminate\Foundation\Http\FormRequest;
 
-class FormUpdateRequest extends Request
+class FormUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,12 +26,11 @@ class FormUpdateRequest extends Request
     {
         $types = app(FormRepository::class)->getTypeList();
         $types = implode(',', array_keys($types));
-        $id = $this->route()->getParameter('forms');
+        $id = $this->route()->getParameter('form');
 
         return [
             'type'  => "required|in:{$types}",
             'name'  => "required|unique:forms,name,{$id}",
-            'title' => 'required',
         ];
     }
 }

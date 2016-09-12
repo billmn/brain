@@ -3,8 +3,9 @@
 namespace App\Http\Requests;
 
 use App\Repositories\MenuRepository;
+use Illuminate\Foundation\Http\FormRequest;
 
-class MenuItemCreateRequest extends Request
+class MenuItemCreateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

@@ -3,8 +3,9 @@
 namespace App\Http\Requests;
 
 use App\Repositories\FormRepository;
+use Illuminate\Foundation\Http\FormRequest;
 
-class FormFieldCreateRequest extends Request
+class FormFieldCreateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
