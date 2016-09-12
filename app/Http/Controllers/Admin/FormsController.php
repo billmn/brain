@@ -37,9 +37,9 @@ class FormsController extends Controller
     public function create()
     {
         $form = $this->formRepo->model();
-        $typeList = $this->formRepo->getTypeList();
+        $form->enabled = true;
 
-        return view('admin.forms.form', compact('form', 'typeList'));
+        return view('admin.forms.form', compact('form'));
     }
 
     /**
@@ -79,9 +79,8 @@ class FormsController extends Controller
     {
         $form = $this->formRepo->find($id);
         $fields = $this->formRepo->getFields($form->id);
-        $typeList = $this->formRepo->getTypeList();
 
-        return view('admin.forms.form', compact('form', 'fields', 'typeList'));
+        return view('admin.forms.form', compact('form', 'fields'));
     }
 
     /**

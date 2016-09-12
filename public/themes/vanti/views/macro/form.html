@@ -1,89 +1,102 @@
 {# ---------------------------------------------------
     FORMS
 --------------------------------------------------- #}
-{% macro form_bootstrap(form, parameters) %}
-
+{% macro bootstrap(form, parameters) %}
     {% set fill        = parameters.fill %}
     {% set align       = parameters.align|default('horizontal') %}
     {% set label_class = (align == 'horizontal') ? 'control-label col-md-3' : null %}
 
     {% if form %}
     <div class="form-cont">
-
-        {# ---- NOTIFICHE ---- #}
         {% if form.success %}
             <div class="alert alert-success">{{ form.success }}</div>
         {% endif %}
 
         {% if form.title or form.description %}
         <div class="form-heading">
-            {# ---- TITOLO FORM ---- #}
             {% if form.title %}
                 <h4 class="page-header">{{ form.title }}</h4>
             {% endif %}
 
-            {# ---- DESCRIZIONE FORM ---- #}
             {% if form.description %}
-                <div class="page-subtitle">{{ form.description }}</div>
+                <div class="page-subtitle">{{ form.description|raw }}</div>
             {% endif %}
         </div>
         {% endif %}
 
-        {{ form.open({ class: "form-#{align}" }) }}
+        {{ form_open({ url: form.action, class: "form-#{align}" }) }}
             {% for field in form.fields %}
+                {% set value = field.value ?: null  %}
 
-                {% if field.is_hidden %}
+                {% if field.type == 'hidden' %}
                     {% if field.info.name in fill|keys %}
                         {{ field.input({ value: fill[field.info.name] }) }}
                     {% else %}
-                        {{ field.input }}
+                        {{ form_hidden(field.name, value) }}
                     {% endif %}
 
                 {% else %}
                     <div class="form-group {{ field.error ? 'has-error' : '' }}">
-
-                        {# ---- ETICHETTA CAMPO ---- #}
-                        {{ field.label({ class: label_class }) }}
+                        <label class="{{ label_class }}">{{ field.label }}</label>
 
                         {% if align == 'horizontal' %}
-                        <div class="controls col-md-7">
+                            <div class="controls col-md-7">
                         {% endif %}
-
-                            {# ---- CAMPO ---- #}
                             {% if field.info.name in fill|keys %}
                                 {{ field.input({ value: fill[field.info.name] }) }}
+
                             {% else %}
-                                {{ field.input }}
+                                {% if field.type == 'select' %}
+                                    {{ form_select(field.name, field.options_list.pluck('label', 'value'), value, { class: 'form-control' }) }}
+                                {% elseif field.type == 'textarea' %}
+                                    {{ form_textarea(field.name, value, { class: 'form-control' }) }}
+                                {% elseif field.type in ['checkbox', 'radio'] %}
+                                    {% for option in field.options_list %}
+                                        {% set checked = option.value|lower in field.value|lower|split(',') %}
+
+                                        {% if field.type == 'checkbox' %}
+                                            <div class="checkbox">
+                                                <label>
+                                                    {{ form_checkbox(field.name ~ "[]", option.value, checked) }} {{ option.label }}
+                                                </label>
+                                            </div>
+                                        {% else %}
+                                            <div class="radio">
+                                                <label>
+                                                    {{ form_radio(field.name ~ "[]", option.value, checked) }} {{ option.label }}
+                                                </label>
+                                            </div>
+                                        {% endif %}
+                                    {% endfor %}
+                                {% else %}
+                                    {{ form_text(field.name, value, { class: 'form-control' }) }}
+                                {% endif %}
                             {% endif %}
 
-                            {# ---- ERRORI DI VALIDAZIONE E DESCR CAMPO ---- #}
                             {% if field.error %}<span class="help-inline text-danger" >{{ field.error }}</span>{% endif %}
                             {% if field.descr %}<span class="help-block">{{ field.descr }}</span>{% endif %}
 
                         {% if align == 'horizontal' %}
-                        </div>
+                            </div>
                         {% endif %}
                     </div>
                 {% endif %}
-
             {% endfor %}
 
-
-            {# ---- PULSANTI FORM ---- #}
             {% if form.fields %}
                 {% if align == 'horizontal' %}
                     <div class="form-group form-actions">
                         <div class="col-md-7 col-md-offset-3">
-                            {{ form.submit({ class: 'btn btn-primary' }) }}
+                            {{ form_submit(null, { class: 'btn btn-primary' }) }}
                         </div>
                     </div>
                 {% else %}
                     <div class="form-group form-actions">
-                        {{ form.submit({ class: 'btn btn-primary btn-block' }) }}
+                        {{ form_submit(null, { class: 'btn btn-primary btn-block' }) }}
                     </div>
                 {% endif %}
             {% endif %}
-        {{ form.close }}
+        {{ form_close }}
     </div>
     {% endif %}
 {% endmacro %}

@@ -64,7 +64,7 @@ class Update1 extends Migration
             $table->string('type');
             $table->boolean('enabled');
             $table->string('name')->unique();
-            $table->string('title');
+            $table->string('title')->nullable();
             $table->text('description')->nullable();
             $table->timestamps();
         });

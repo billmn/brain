@@ -10,14 +10,11 @@
     @endif
 
         {!! Form::errors() !!}
+        {!! Form::hidden('type', App\Models\Form::TYPE_CONTACT) !!}
 
         <div class="field">
             {!! Form::label(trans('admin.forms.fields.name')) !!}
             {!! Form::text('name', null, ['autofocus' => true]) !!}
-        </div>
-
-        <div class="field">
-            {!! Form::select('type', $typeList, App\Models\Form::TYPE_CONTACT) !!}
         </div>
 
         <div class="field">
@@ -27,30 +24,32 @@
             </div>
         </div>
 
-        <div class="ui top attached tabular menu" data-cookie="admin_form_tab">
-            <a class="item active" data-tab="info">{{ trans('admin.forms.tabs.info') }}</a>
-            <a class="item" data-tab="fields">{{ trans('admin.forms.tabs.fields') }}</a>
-        </div>
-
-        <div class="ui bottom attached tab segment active" data-tab="info">
-            <div class="field">
-                {!! Form::label(trans('admin.forms.fields.title')) !!}
-                {!! Form::text('title') !!}
+        @if ($form->exists)
+            <div class="ui top attached tabular menu" data-cookie="admin_form_tab">
+                <a class="item active" data-tab="info">{{ trans('admin.forms.tabs.info') }}</a>
+                <a class="item" data-tab="fields">{{ trans('admin.forms.tabs.fields') }}</a>
             </div>
 
-            <div class="field">
-                {!! Form::label(trans('admin.forms.fields.description')) !!}
-                {!! Form::wysi('description') !!}
+            <div class="ui bottom attached tab segment active" data-tab="info">
+                <div class="field">
+                    {!! Form::label(trans('admin.forms.fields.title')) !!}
+                    {!! Form::text('title') !!}
+                </div>
+
+                <div class="field">
+                    {!! Form::label(trans('admin.forms.fields.description')) !!}
+                    {!! Form::wysi('description') !!}
+                </div>
             </div>
-        </div>
 
-        <div class="ui bottom attached tab segment" data-tab="fields">
-            <a class="ui green button modal-iframe" href="{{ route('forms.fields.create', $form) }}">
-                <i class="plus icon"></i> {{ trans('admin.actions.add') }} {{ trans('admin.forms_fields.sing') }}
-            </a>
+            <div class="ui bottom attached tab segment" data-tab="fields">
+                <a class="ui green button modal-iframe" href="{{ route('forms.fields.create', $form) }}">
+                    <i class="plus icon"></i> {{ trans('admin.actions.add') }} {{ trans('admin.forms_fields.sing') }}
+                </a>
 
-            <div id="fields_tree" class="tree-cont block-style"></div>
-        </div>
+                <div id="fields_tree" class="tree-cont block-style"></div>
+            </div>
+        @endif
 
         <a class="ui button" href="{{ route('forms.index') }}">
             <i class="angle left icon"></i> {{ trans('admin.actions.back') }}
