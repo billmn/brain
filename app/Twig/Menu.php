@@ -3,9 +3,9 @@
 namespace App\Twig;
 
 use Twig_Extension;
-use App\Models\Menu;
 use Twig_SimpleFilter;
 use Twig_SimpleFunction;
+use App\Models\Menu as MenuModel;
 use App\Repositories\MenuRepository;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
@@ -57,12 +57,12 @@ class Menu extends Twig_Extension
         }
     }
 
-    public function getItems(Menu $menu)
+    public function getItems(MenuModel $menu)
     {
         return $this->menuRepo->getItems($menu->id);
     }
 
-    public function getElements(Menu $menu, $sublevels = null)
+    public function getElements(MenuModel $menu, $sublevels = null)
     {
         return $this->menuRepo->getElements($menu->id, $sublevels);
     }

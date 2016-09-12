@@ -4,14 +4,14 @@ namespace App\Twig;
 
 use Twig_Extension;
 use Twig_SimpleFilter;
-use App\Services\Theme;
 use Twig_SimpleFunction;
+use App\Services\Theme as ThemeService;
 
 class Theme extends Twig_Extension
 {
     protected $theme;
 
-    public function __construct(Theme $theme)
+    public function __construct(ThemeService $theme)
     {
         $this->theme = $theme;
     }
