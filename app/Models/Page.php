@@ -194,6 +194,12 @@ class Page extends BaseModel
         return empty($value) ? null : $this->asDateTime($value);
     }
 
+    public function getGalleryCollectionAttribute()
+    {
+        $items = array_filter(explode(',', $this->gallery));
+        return collect($items);
+    }
+
     /*
     |--------------------------------------------------------------------------
     | UTILITY

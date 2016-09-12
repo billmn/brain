@@ -6007,6 +6007,11 @@ body {
 .page-content > h4:first-child {
   margin-top: 0; }
 
+.gallery {
+  margin-top: 10px; }
+  .gallery .item {
+    padding: 0 4px; }
+
 /*
 |--------------------------------------------------------------------------
 | FOOTER

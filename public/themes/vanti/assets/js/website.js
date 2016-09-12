@@ -1,9 +1,9 @@
 $(function()
 {
+    // Top menu
+    // -------------------------------------------------------
     $('.navbar-fixed-top a[href*="#"]').on('click', function(e) {
         e.preventDefault();
-
-        console.log($(this).attr('href'));
 
         var navbar = $('.navbar-fixed-top');
         var target = $($(this).attr('href'));
@@ -13,15 +13,31 @@ $(function()
         }, 1000);
     });
 
+    // Table wrapper
+    // -------------------------------------------------------
     $('.page-content table').addClass('table table-bordered table-striped').wrap('<div class="table-responsive" />');
 
-    $('.owl-carousel').owlCarousel({
+    // Home slider
+    // -------------------------------------------------------
+    $('.home-slider').owlCarousel({
         nav: true,
         items: 1,
         loop: true,
         autoplay: 7000,
         lazyLoad : true,
         autoplayHoverPause: true,
+        navText: [
+            '<span class="glyphicon glyphicon-menu-left"></span>',
+            '<span class="glyphicon glyphicon-menu-right"></span>'
+        ]
+    });
+
+    // Gallery
+    // -------------------------------------------------------
+    $('.gallery').owlCarousel({
+        nav: true,
+        items: 3,
+        slideBy: 'page',
         navText: [
             '<span class="glyphicon glyphicon-menu-left"></span>',
             '<span class="glyphicon glyphicon-menu-right"></span>'

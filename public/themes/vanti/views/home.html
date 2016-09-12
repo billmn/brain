@@ -6,7 +6,7 @@
     {% set menuService = menu_find('servizi') %}
 
     <div class="home-carousel">
-        <div class="owl-carousel owl-theme">
+        <div class="home-slider owl-carousel owl-theme">
             {% for item in menu_items(menuSlider) %}
                 <div class="item owl-lazy" data-src="{{ resample(item.page.secondary_image ?: item.page.primary_image) }}">
                     <div class="overlay"></div>

@@ -8,9 +8,19 @@
 
     <div class="container">
         <div class="row">
-            {% if page.primary_image %}
+            {% if page.primary_image or page.gallery %}
                 <div class="col-md-4">
                     <img class="img-responsive" src="{{ resample(page.primary_image) }}">
+
+                    {% if page.gallery_collection.count() %}
+                        <div class="owl-carousel owl-theme gallery">
+                            {% for item in page.gallery_collection %}
+                                <div class="item">
+                                    <img src="{{ resample(item, { w: 140 }) }}" class="img-responsive">
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
                 </div>
             {% endif %}
 
