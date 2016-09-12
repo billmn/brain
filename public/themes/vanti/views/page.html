@@ -10,37 +10,39 @@
         <h1 class="page-title overlay-title text-uppercase">{{ page.title }}</h1>
     </div>
 
-    <div class="container">
-        <div class="row">
-            {% if page.primary_image or page.gallery %}
-                <div class="col-md-4 page-img-cont">
-                    <img class="img-responsive" src="{{ resample(page.primary_image) }}">
+    {% block page_content %}
+        <div class="container">
+            <div class="row">
+                {% if page.primary_image or page.gallery %}
+                    <div class="col-md-4 page-img-cont">
+                        <img class="img-responsive" src="{{ resample(page.primary_image) }}">
 
-                    {% if page.gallery_collection.count() %}
-                        <div class="owl-carousel owl-theme gallery">
-                            {% for item in page.gallery_collection %}
-                                <div class="item">
-                                    <img src="{{ resample(item, { w: 140 }) }}" class="img-responsive">
-                                </div>
-                            {% endfor %}
-                        </div>
-                    {% endif %}
+                        {% if page.gallery_collection.count() %}
+                            <div class="owl-carousel owl-theme gallery">
+                                {% for item in page.gallery_collection %}
+                                    <div class="item">
+                                        <img src="{{ resample(item, { w: 140 }) }}" class="img-responsive">
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                {% endif %}
+
+                <div class="page-content {{ page.primary_image ? 'col-md-8' : 'col-md-12' }}">
+                    {{ page.content|raw }}
+                </div>
+            </div>
+
+            {% set descendants = page.descendants %}
+
+            {% if descendants %}
+                <div class="page-descendants">
+                    {% for descendant in descendants %}
+                        {{ include('vanti::partials.page_grid', { page: descendant }) }}
+                    {% endfor %}
                 </div>
             {% endif %}
-
-            <div class="page-content {{ page.primary_image ? 'col-md-8' : 'col-md-12' }}">
-                {{ page.content|raw }}
-            </div>
         </div>
-
-        {% set descendants = page.descendants %}
-
-        {% if descendants %}
-            <div class="page-descendants">
-                {% for descendant in descendants %}
-                    {{ include('vanti::partials.page_grid', { page: descendant }) }}
-                {% endfor %}
-            </div>
-        {% endif %}
-    </div>
+    {% endblock %}
 {% endblock %}
