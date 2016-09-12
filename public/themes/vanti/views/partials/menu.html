@@ -11,7 +11,7 @@
         </ul>
     </li>
 {% else %}
-    <li class="{{ Request.url() == item.url ? 'active' : 'inactive' }}">
+    <li class="{{ url_current() == item.url ? 'active' : 'inactive' }}">
         <a href="{{ item.url }}">{{ item.label }}</a>
     </li>
 {% endif %}

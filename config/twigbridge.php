@@ -115,6 +115,9 @@ return [
             // 'TwigBridge\Extension\Laravel\Form',
             // 'TwigBridge\Extension\Laravel\Html',
             // 'TwigBridge\Extension\Laravel\Legacy\Facades',
+
+            'App\Twig\Menu',
+            'App\Twig\Theme',
         ],
 
         /*
@@ -144,11 +147,7 @@ return [
         | in order to be marked as safe.
         |
         */
-        'facades' => [
-            'Request',
-            'Theme',
-            'Menu' => app(App\Repositories\MenuRepository::class)
-        ],
+        'facades' => [],
 
         /*
         |--------------------------------------------------------------------------
@@ -184,9 +183,6 @@ return [
             'last',
             'settings',
             'resample',
-            'label' => function($name, $default = null) {
-                return app(App\Services\Theme::class)->label($name, $default);
-            },
         ],
 
         /*

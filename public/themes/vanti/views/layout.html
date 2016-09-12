@@ -18,7 +18,7 @@
         <![endif]-->
 
         <link href="https://fonts.googleapis.com/css?family=Monda" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="{{ Theme.asset('css/website.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ theme_asset('css/website.css') }}">
 
         {{ settings('website.styles')|raw }}
     </head>
@@ -27,17 +27,16 @@
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu" aria-expanded="false">
-                        <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
 
-                    <a class="navbar-brand" href="/">{{ label('company') }}</a>
+                    <a class="navbar-brand" href="/">{{ theme_label('company') }}</a>
                 </div>
 
-                {% set menu = Menu.findByName('top') %}
-                {% set menuItems = Menu.getEntities(menu.id) %}
+                {% set menu = menu_find('top') %}
+                {% set menuItems = menu_elements(menu) %}
 
                 {% if menuItems.count %}
                     <div id="menu" class="collapse navbar-collapse">
@@ -59,8 +58,8 @@
             </div>
         </section>
 
-        <script type="text/javascript" src="{{ Theme.asset('js/plugins.js') }}"></script>
-        <script type="text/javascript" src="{{ Theme.asset('js/website.js') }}"></script>
+        <script type="text/javascript" src="{{ theme_asset('js/plugins.js') }}"></script>
+        <script type="text/javascript" src="{{ theme_asset('js/website.js') }}"></script>
 
         {{ settings('website.scripts')|raw }}
     </body>

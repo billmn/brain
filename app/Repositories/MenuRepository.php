@@ -58,6 +58,25 @@ class MenuRepository
     }
 
     /**
+     * Get menu Elements.
+     *
+     * @param  int   $menuId
+     * @param  mixed $sublevels
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
+    public function getElements($menuId, $sublevels = null)
+    {
+        $entities = [];
+
+        foreach ($this->getItems($menuId) as $item) {
+            $sublevels = is_int($sublevels) ? $sublevels : $item->sublevels;
+            $entities[] = (new MenuElement($item, $sublevels))->fill();
+        }
+
+        return collect($entities);
+    }
+
+    /**
      * Find a Menu by ID.
      *
      * @param  int $id
@@ -220,16 +239,5 @@ class MenuRepository
         $this->itemModel->setNewOrder($items);
 
         return $this->getFields($menuId);
-    }
-
-    public function getEntities($menuId)
-    {
-        $entities = [];
-
-        foreach ($this->getItems($menuId) as $item) {
-            $entities[] = (new MenuElement($item, $item->sublevels))->fill();
-        }
-
-        return collect($entities);
     }
 }
