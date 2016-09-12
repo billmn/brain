@@ -1,5 +1,9 @@
 {% extends 'vanti::layout' %}
 
+{% block page_title %}
+    {{ page.title }}
+{% endblock %}
+
 {% block content %}
     <div class="parallax page-parallax" style="background: url({{ theme_asset('img/excavator.jpg') }}) center;">
         <div class="overlay"></div>

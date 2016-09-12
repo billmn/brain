@@ -1,5 +1,9 @@
 {% extends('vanti::layout') %}
 
+{% block page_title %}
+    {{ settings('home.title') }}
+{% endblock %}
+
 {% block content %}
     {% set menuIntro = menu_find('intro') %}
     {% set menuSlider = menu_find('slider') %}
