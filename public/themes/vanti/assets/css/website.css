@@ -5929,15 +5929,18 @@ body {
     font-weight: 300;
     line-height: 40px; }
 
-.home-parallax {
+.parallax {
   color: #fff;
   margin: 20px 0;
   padding: 100px 0;
   position: relative;
   text-align: center;
   margin-bottom: 40px; }
-  .home-parallax h1 {
+  .parallax h1 {
     font-size: 50px; }
+  .parallax.page-parallax {
+    padding: 40px 0;
+    margin-top: 0; }
 
 .service {
   text-align: center;
