@@ -240,6 +240,9 @@ $carousel-title-size: 50px;
         margin-top: 0;
     }
 }
+.page-img-cont {
+    margin-bottom: 20px;
+}
 .gallery {
     margin-top: 10px;
 
@@ -313,4 +316,36 @@ $carousel-title-size: 50px;
     -webkit-border-radius: 6px 0 6px 6px;
     -moz-border-radius: 6px 0 6px 6px;
     border-radius: 6px 0 6px 6px;
+}
+
+/* Small devices (tablets, 768px and down) */
+@media (max-width: $screen-sm-min) {
+
+}
+
+/* Medium devices (desktops, 992px and down) */
+@media (max-width: $screen-md-min) {
+    .navbar-nav .open .dropdown-menu {
+        display: block !important;
+        margin-left: 4%;
+
+        .dropdown-submenu > a:after {
+            display: none;
+        }
+    }
+    .home-carousel:hover .owl-nav {
+        opacity: 0;
+    }
+    .parallax h1 {
+        font-size: 24px;
+    }
+    .parallax.page-parallax {
+        padding: 20px 0;
+        margin-bottom: 20px;
+    }
+}
+
+/* Large devices (large desktops, 1200px and down) */
+@media (max-width: $screen-lg-min) {
+
 }

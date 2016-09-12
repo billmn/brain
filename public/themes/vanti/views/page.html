@@ -9,7 +9,7 @@
     <div class="container">
         <div class="row">
             {% if page.primary_image or page.gallery %}
-                <div class="col-md-4">
+                <div class="col-md-4 page-img-cont">
                     <img class="img-responsive" src="{{ resample(page.primary_image) }}">
 
                     {% if page.gallery_collection.count() %}

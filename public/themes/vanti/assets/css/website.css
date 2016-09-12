@@ -6007,6 +6007,9 @@ body {
 .page-content > h4:first-child {
   margin-top: 0; }
 
+.page-img-cont {
+  margin-bottom: 20px; }
+
 .gallery {
   margin-top: 10px; }
   .gallery .item {
@@ -6073,6 +6076,24 @@ body {
   left: -100%;
   margin-left: 10px;
   border-radius: 6px 0 6px 6px; }
+
+/* Small devices (tablets, 768px and down) */
+/* Medium devices (desktops, 992px and down) */
+@media (max-width: 992px) {
+  .navbar-nav .open .dropdown-menu {
+    display: block !important;
+    margin-left: 4%; }
+    .navbar-nav .open .dropdown-menu .dropdown-submenu > a:after {
+      display: none; }
+  .home-carousel:hover .owl-nav {
+    opacity: 0; }
+  .parallax h1 {
+    font-size: 24px; }
+  .parallax.page-parallax {
+    padding: 20px 0;
+    margin-bottom: 20px; } }
+
+/* Large devices (large desktops, 1200px and down) */
 
 /*# sourceMappingURL=website.css.map */
 
