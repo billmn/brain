@@ -73,6 +73,10 @@ $(function() {
                         moved_node.parent == target_node.parent;
         },
         onCreateLi: function(node, $li) {
+            if (node.realname == 'email') {
+                return;
+            }
+
             var url = {
                 edit: "{{ route('forms.fields.edit', [$form, 0]) }}",
                 destroy: "{{ route('forms.fields.destroy', [$form, 0]) }}"

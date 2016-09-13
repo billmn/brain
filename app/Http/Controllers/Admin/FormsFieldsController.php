@@ -30,7 +30,8 @@ class FormsFieldsController extends Controller
         foreach ($this->formRepo->getFields($formId) as $field) {
             $nodes[] = [
                 'id' => $field->id,
-                'name' => $field->label,
+                'label' => $field->label,
+                'realname' => $field->name,
             ];
         }
 
