@@ -21,6 +21,7 @@ $(function() {
     var $tree = $('#tree').tree({
         dataUrl: "{{ route('pages.index') }}",
         autoOpen: true,
+        saveState: true,
         dragAndDrop: true,
         onCreateLi: function(node, $li) {
             var url = {
