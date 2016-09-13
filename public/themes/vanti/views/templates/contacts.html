@@ -5,7 +5,7 @@
 {% block page_content %}
     <div class="container">
         <div class="row">
-            <div class="col-md-8">
+            <div class="{{ page.form ? 'col-md-8' : 'col-md-12' }}">
                 {{ page.content|raw }}
 
                 <br /><br />
@@ -17,11 +17,14 @@
 
                 <br />
             </div>
-            <div class="col-md-4">
-                <div class="well well-sm well-contact">
-                    {{ formMacro.bootstrap(page.form, { align: 'vertical' }) }}
+
+            {% if page.form %}
+                <div class="col-md-4">
+                    <div class="well well-sm well-contact">
+                        {{ formMacro.bootstrap(page.form, { align: 'vertical' }) }}
+                    </div>
                 </div>
-            </div>
+            {% endif %}
         </div>
     </div>
 {% endblock %}

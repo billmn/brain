@@ -27,10 +27,14 @@ class FormFieldCreateRequest extends FormRequest
         $types = app(FormRepository::class)->getFieldTypeList();
         $types = implode(',', array_keys($types));
 
+        $id = $this->route()->getParameter('field');
+        $formId = $this->route()->getParameter('form');
+
         return [
             'form_id' => 'required',
             'type'    => "required|in:{$types}",
             'label'   => 'required',
+            'name'    => "required|unique:forms_fields,name,{$id},id,form_id,{$formId}",
         ];
     }
 }

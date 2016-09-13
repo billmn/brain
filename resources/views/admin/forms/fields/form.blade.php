@@ -32,8 +32,8 @@
                 {!! Form::select('type', $typeList) !!}
             </div>
             <div class="field">
-                {!! Form::label(trans('admin.forms_fields.fields.label')) !!}
-                {!! Form::text('label', null, ['autofocus' => true]) !!}
+                {!! Form::label(trans('admin.forms_fields.fields.name')) !!}
+                {!! Form::text('name', null, ['autofocus' => true]) !!}
             </div>
         </div>
 
@@ -46,8 +46,8 @@
         <div class="ui bottom attached tab segment active" data-tab="info">
             <div class="two fields">
                 <div class="field">
-                    {!! Form::label(trans('admin.forms_fields.fields.name')) !!}
-                    {!! Form::text('name', null, ['placeholder' => 'Leave empty to autogenerate ...']) !!}
+                    {!! Form::label(trans('admin.forms_fields.fields.label')) !!}
+                    {!! Form::text('label') !!}
                 </div>
                 <div class="field">
                     {!! Form::label(trans('admin.forms_fields.fields.value')) !!}
@@ -76,4 +76,16 @@
         </div>
     </div>
 {!! Form::close() !!}
+@endsection
+
+@section('scripts')
+<script>
+$(function() {
+    $('input[name=name]').on('blur', function() {
+        if ($('input[name=label]').val().length == 0) {
+            $('input[name=label]').val($('input[name=name]').val());
+        }
+    });
+})
+</script>
 @endsection

@@ -85,7 +85,17 @@ class FormRepository
      */
     public function create(array $input)
     {
-        return $this->model->create($input);
+        $form = $this->model->create($input);
+
+        // Default Email field
+        $this->addField($form, [
+            'type'  => 'email',
+            'name'  => 'email',
+            'label' => 'Email',
+            'rules' => 'required|email'
+        ]);
+
+        return $form;
     }
 
     /**

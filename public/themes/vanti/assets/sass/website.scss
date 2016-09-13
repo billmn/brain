@@ -43,6 +43,10 @@ body {
     position: absolute;
     background: transparent;
 }
+form .label-required:after {
+    content: ' *';
+    color: #840e0e;
+}
 
 /*
 |--------------------------------------------------------------------------

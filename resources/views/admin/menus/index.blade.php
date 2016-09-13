@@ -56,7 +56,7 @@
         <div class="ui bottom attached tab segment" data-tab="positions">
             {!! Form::model($menuPositionsValues, ['route' => 'menus.positions']) !!}
                 <div class="ui form">
-                    @set('positionsList', $menus->pluck('name', 'id')->prepend([0 => trans('admin.menus.default_position')]))
+                    @set('positionsList', [0 => trans('admin.menus.default_position')] + $menus->pluck('name', 'id')->toArray())
 
                     @foreach($menuPositions as $position => $label)
                         <div class="field">

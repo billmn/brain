@@ -267,6 +267,7 @@ return [
         'types' => [
             App\Models\FormField::TYPE_DATE     => 'Date',
             App\Models\FormField::TYPE_TEXT     => 'Text',
+            App\Models\FormField::TYPE_EMAIL    => 'Email',
             App\Models\FormField::TYPE_SELECT   => 'Select',
             App\Models\FormField::TYPE_HIDDEN   => 'Hidden',
             App\Models\FormField::TYPE_RADIO    => 'Radio',

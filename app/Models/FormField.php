@@ -21,6 +21,7 @@ class FormField extends BaseModel implements Sortable
      */
     const TYPE_DATE = 'date';
     const TYPE_TEXT = 'text';
+    const TYPE_EMAIL = 'email';
     const TYPE_SELECT = 'select';
     const TYPE_HIDDEN = 'hidden';
     const TYPE_RADIO = 'radio';
@@ -52,6 +53,7 @@ class FormField extends BaseModel implements Sortable
     {
         return [
             self::TYPE_TEXT     => trans('admin.forms_fields.types.'.self::TYPE_TEXT),
+            self::TYPE_EMAIL    => trans('admin.forms_fields.types.'.self::TYPE_EMAIL),
             self::TYPE_SELECT   => trans('admin.forms_fields.types.'.self::TYPE_SELECT),
             self::TYPE_TEXTAREA => trans('admin.forms_fields.types.'.self::TYPE_TEXTAREA),
             self::TYPE_HIDDEN   => trans('admin.forms_fields.types.'.self::TYPE_HIDDEN),

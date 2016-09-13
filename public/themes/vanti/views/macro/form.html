@@ -26,7 +26,8 @@
 
         {{ form_open({ url: form.action, class: "form-#{align}" }) }}
             {% for field in form.fields %}
-                {% set value = field.value ?: null  %}
+                {% set value = field.value ?: null %}
+                {% set field_error = session_get('errors').first('email') %}
 
                 {% if field.type == 'hidden' %}
                     {% if field.info.name in fill|keys %}
@@ -37,7 +38,9 @@
 
                 {% else %}
                     <div class="form-group {{ field.error ? 'has-error' : '' }}">
-                        <label class="{{ label_class }}">{{ field.label }}</label>
+                        <label class="{{ label_class }} {{ 'required' in field.rules ? 'label-required' : null }}">
+                            {{ field.label }}
+                        </label>
 
                         {% if align == 'horizontal' %}
                             <div class="controls col-md-7">
@@ -73,8 +76,13 @@
                                 {% endif %}
                             {% endif %}
 
-                            {% if field.error %}<span class="help-inline text-danger" >{{ field.error }}</span>{% endif %}
-                            {% if field.descr %}<span class="help-block">{{ field.descr }}</span>{% endif %}
+                            {% if field_error %}
+                                <small class="help-inline text-danger" >{{ field_error }}</small>
+                            {% endif %}
+
+                            {% if field.description %}
+                                <small class="help-block">{{ field.description }}</small>
+                            {% endif %}
 
                         {% if align == 'horizontal' %}
                             </div>
