@@ -11,7 +11,10 @@ class ContactController extends Controller
     {
         $form = $formRepo->find($formId);
         $fields = $form->fields;
-        $fieldsRules = $fields->pluck('rules', 'name');
+        $fieldsRules = $fields->pluck('rules', 'name')->merge([
+            'hp'      => 'honeypot',
+            'hp_time' => 'required|honeytime:5',
+        ]);
 
         // Fields validation
         $this->validate($request, $fieldsRules->toArray());

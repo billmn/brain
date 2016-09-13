@@ -169,6 +169,7 @@ return [
         TwigBridge\ServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
+        Msurguy\Honeypot\HoneypotServiceProvider::class,
         Caffeinated\Themes\ThemesServiceProvider::class,
         Barryvdh\Elfinder\ElfinderServiceProvider::class,
         Cviebrock\EloquentSluggable\ServiceProvider::class,
@@ -238,6 +239,7 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
         'Theme' => Caffeinated\Themes\Facades\Theme::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
+        'Honeypot' => Msurguy\Honeypot\HoneypotFacade::class,
 
     ],
 

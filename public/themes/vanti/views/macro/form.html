@@ -25,6 +25,8 @@
         {% endif %}
 
         {{ form_open({ url: form.action, class: "form-#{align}" }) }}
+            {{ Honeypot.generate('hp', 'hp_time')|raw }}
+
             {% for field in form.fields %}
                 {% set value = field.value ?: null %}
                 {% set field_error = session_get('errors').first('email') %}
