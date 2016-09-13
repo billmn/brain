@@ -162,15 +162,18 @@ return [
     |--------------------------------------------------------------------------
     */
     'menus' => [
-        'title'        => 'Menu',
-        'sing'         => 'menu',
-        'plur'         => 'menus',
-        'choice'       => 'menu|menus',
-        'empty'        => 'No menus',
+        'title'            => 'Menu',
+        'sing'             => 'menu',
+        'plur'             => 'menus',
+        'choice'           => 'menu|menus',
+        'empty'            => 'No menus',
+        'default_position' => '-- None --',
 
         'tabs' => [
-            'info'  => 'Info',
-            'items' => 'Items',
+            'info'      => 'Info',
+            'items'     => 'Items',
+            'lists'     => 'Lists',
+            'positions' => 'Positions',
         ],
 
         'fields' => [
@@ -181,9 +184,10 @@ return [
         ],
 
         'message' => [
-            'create_success' => 'Menu created successfully.',
-            'update_success' => 'Menu updated successfully.',
-            'delete_success' => 'Menu deleted successfully.',
+            'create_success'   => 'Menu created successfully.',
+            'update_success'   => 'Menu updated successfully.',
+            'delete_success'   => 'Menu deleted successfully.',
+            'position_success' => 'Postions saved successfully.',
         ],
     ],
 

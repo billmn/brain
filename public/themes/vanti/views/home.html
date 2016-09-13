@@ -5,9 +5,9 @@
 {% endblock %}
 
 {% block content %}
-    {% set menuIntro = menu_find('intro') %}
-    {% set menuSlider = menu_find('slider') %}
-    {% set menuService = menu_find('servizi') %}
+    {% set menuIntro = menu_find_by_position('intro') %}
+    {% set menuSlider = menu_find_by_position('slider') %}
+    {% set menuService = menu_find_by_position('servizi') %}
 
     <div class="home-carousel">
         <div class="home-slider owl-carousel owl-theme">

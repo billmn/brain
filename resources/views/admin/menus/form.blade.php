@@ -16,7 +16,7 @@
             {!! Form::text('name', null, ['autofocus' => true]) !!}
         </div>
 
-        <div class="ui top attached tabular menu" data-cookie="admin_form_tab">
+        <div class="ui top attached tabular menu" data-cookie="admin_menu_tab">
             <a class="item active" data-tab="info">{{ trans('admin.menus.tabs.info') }}</a>
             <a class="item" data-tab="items">{{ trans('admin.menus.tabs.items') }}</a>
         </div>

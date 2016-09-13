@@ -35,7 +35,7 @@
                     <a class="navbar-brand" href="/">{{ theme_label('company') }}</a>
                 </div>
 
-                {% set menu = menu_find('top') %}
+                {% set menu = menu_find_by_position('top') %}
                 {% set menuItems = menu_elements(menu) %}
 
                 {% if menuItems.count %}

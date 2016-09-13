@@ -1,14 +1,20 @@
 {
     "slug": "vanti",
-    "name": "Vanti Theme",
-    "author": "John Doe",
-    "description": "This is the default theme.",
+    "name": "Vanti",
+    "author": "Davide Bellini",
+    "description": "Tema personalizzato per Vanti.",
     "version": "1.0.0",
     "labels": {
         "company": {
             "type": "text",
             "label": "Nome azienda"
         }
+    },
+    "menus": {
+        "top": "Menu di navigazione in alto",
+        "intro": "Introduzione in Homepage",
+        "slider": "Slider foto",
+        "servizi": "Vetrina servizi"
     },
     "templates": {
         "vanti::templates.contacts": "Pagina contatti"

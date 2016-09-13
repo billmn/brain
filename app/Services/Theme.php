@@ -79,4 +79,39 @@ class Theme extends CaffeinatedThemes
 
         return settings(["{$this->active}::labels" => $labels]);
     }
+
+    /**
+     * Get theme menu's positions.
+     *
+     * @return array
+     */
+    public function getMenuPositions()
+    {
+        return $this->getProperty("{$this->active}::menus", []);
+    }
+
+    /**
+     * Get menu's positions values.
+     *
+     * @return array
+     */
+    public function getMenuPositionsValues()
+    {
+        return settings("{$this->active}::menus", []);
+    }
+
+    /**
+     * Set menu's positions.
+     *
+     * @param  array $positions
+     * @return array
+     */
+    public function setMenuPositions(array $positions)
+    {
+        if (empty(array_filter($positions))) {
+            return settings()->delete("{$this->active}::menus");
+        }
+
+        return settings(["{$this->active}::menus" => $positions]);
+    }
 }

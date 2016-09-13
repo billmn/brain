@@ -57,6 +57,7 @@ class Update1 extends Migration
             $table->timestamps();
 
             $table->foreign('menu_id')->references('id')->on('menus')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('page_id')->references('id')->on('pages')->onUpdate('cascade')->onDelete('cascade');
         });
 
         Schema::create('forms', function (Blueprint $table) {

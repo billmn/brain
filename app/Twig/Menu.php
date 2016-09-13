@@ -4,6 +4,7 @@ namespace App\Twig;
 
 use Twig_Extension;
 use Twig_SimpleFilter;
+use App\Services\Theme;
 use Twig_SimpleFunction;
 use App\Models\Menu as MenuModel;
 use App\Repositories\MenuRepository;
@@ -35,6 +36,7 @@ class Menu extends Twig_Extension
             new Twig_SimpleFunction('menu_find', [$this, 'find']),
             new Twig_SimpleFunction('menu_items', [$this, 'getItems']),
             new Twig_SimpleFunction('menu_elements', [$this, 'getElements']),
+            new Twig_SimpleFunction('menu_find_by_position', [$this, 'findByPosition']),
         ];
     }
 
@@ -57,13 +59,33 @@ class Menu extends Twig_Extension
         }
     }
 
-    public function getItems(MenuModel $menu)
+    public function getItems($menu)
     {
+        if (! $menu instanceof MenuModel) {
+            return null;
+        }
+
         return $this->menuRepo->getItems($menu->id);
     }
 
-    public function getElements(MenuModel $menu, $sublevels = null)
+    public function getElements($menu, $sublevels = null)
     {
+        if (! $menu instanceof MenuModel) {
+            return null;
+        }
+
         return $this->menuRepo->getElements($menu->id, $sublevels);
+    }
+
+    public function findByPosition($position)
+    {
+        $theme = app(Theme::class);
+        $values = $theme->getMenuPositionsValues();
+
+        if ($values and isset($values[$position]) and $values[$position] > 0) {
+            return $this->find($values[$position]);
+        }
+
+        return null;
     }
 }

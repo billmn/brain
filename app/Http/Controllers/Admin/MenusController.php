@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests;
+use App\Services\Theme;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repositories\MenuRepository;
 
@@ -22,11 +24,13 @@ class MenusController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Theme $theme)
     {
         $menus = $this->menuRepo->all();
+        $menuPositions = $theme->getMenuPositions();
+        $menuPositionsValues = $theme->getMenuPositionsValues();
 
-        return view('admin.menus.index', compact('menus'));
+        return view('admin.menus.index', compact('menus', 'menuPositions', 'menuPositionsValues'));
     }
 
     /**
@@ -110,5 +114,17 @@ class MenusController extends Controller
         $this->menuRepo->delete($id);
 
         return back()->withSuccess(trans('admin.menus.message.delete_success'));
+    }
+
+    /**
+     * Set menu position.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function positions(Request $request, Theme $theme)
+    {
+        $theme->setMenuPositions($request->except('_token'));
+
+        return back()->withSuccess(trans('admin.menus.message.position_success'));
     }
 }

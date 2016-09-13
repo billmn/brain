@@ -18,6 +18,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
     Route::post('pages/move', ['as' => 'pages.move', 'uses' => 'PagesController@move']);
 
     Route::resource('menus', 'MenusController');
+    Route::post('menus/positions', ['as' => 'menus.positions', 'uses' => 'MenusController@positions']);
+
     Route::resource('menus.items', 'MenusItemsController');
     Route::post('menus/items/move', ['as' => 'menus.items.move', 'uses' => 'MenusItemsController@move']);
 
