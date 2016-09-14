@@ -118,6 +118,7 @@ return [
 
             'App\Twig\Menu',
             'App\Twig\Theme',
+            'App\Twig\Common',
         ],
 
         /*

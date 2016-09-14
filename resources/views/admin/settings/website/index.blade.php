@@ -12,11 +12,6 @@
         </div>
 
         <div class="field">
-            {!! Form::label(trans('admin.settings.general.fields.home_title')) !!}
-            {!! Form::text('home[title]') !!}
-        </div>
-
-        <div class="field">
             {!! Form::label(trans('admin.settings.general.fields.timezone')) !!}
             {!! Form::select('timezone', $timezones, null, ['class' => 'ui search dropdown']) !!}
         </div>

@@ -9,21 +9,30 @@
             <thead>
                 <tr>
                     <th>{{ trans('admin.labels.fields.name') }}</th>
-                    <th>{{ trans('admin.labels.fields.code') }}</th>
                     <th>{{ trans('admin.labels.fields.value') }}</th>
+                    <th>{{ trans('admin.labels.fields.code') }}</th>
                 </tr>
             </thead>
             <tbody>
                 @forelse($labels as $name => $info)
                     <tr>
-                        <td>{{ $info['label'] }}</td>
-                        <td><code>{{ $name }}</code></td>
+                        <td>
+                            {{ array_get($info, 'label') }}
+                            <br />
+
+                            @if (isset($info['descr']))
+                                <small>{{ $info['descr'] }}</small>
+                            @endif
+                        </td>
                         <td class="field">
-                            @if ($info['type'] == 'textarea')
+                            @if (array_get($info, 'type') == 'textarea')
                                 {!! Form::textarea($name) !!}
                             @else
                                 {!! Form::text($name) !!}
                             @endif
+                        </td>
+                        <td>
+                            <code>{{ $name }}</code>
                         </td>
                     </tr>
                 @empty

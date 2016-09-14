@@ -94,15 +94,17 @@
             {% endfor %}
 
             {% if form.fields %}
+                {% set form_submit_lbl = label('form_submit') ?: null %}
+
                 {% if align == 'horizontal' %}
                     <div class="form-group form-actions">
                         <div class="col-md-7 col-md-offset-3">
-                            {{ form_submit(null, { class: 'btn btn-primary' }) }}
+                            {{ form_submit(form_submit_lbl, { class: 'btn btn-primary' }) }}
                         </div>
                     </div>
                 {% else %}
                     <div class="form-group form-actions">
-                        {{ form_submit(null, { class: 'btn btn-primary btn-block' }) }}
+                        {{ form_submit(form_submit_lbl, { class: 'btn btn-primary btn-block' }) }}
                     </div>
                 {% endif %}
             {% endif %}

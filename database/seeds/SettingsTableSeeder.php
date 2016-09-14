@@ -16,7 +16,6 @@ class SettingsTableSeeder extends Seeder
             'timezone' => 'Europe/Rome',
 
             'website' => [
-                'title'  => 'My website',
                 'slogan' => 'You will love it!',
                 'footer' => 'My website - &copy; Copyright '.date('Y'),
             ],

@@ -2,14 +2,8 @@
     "slug": "vanti",
     "name": "Vanti",
     "author": "Davide Bellini",
-    "description": "Tema personalizzato per Vanti.",
+    "description": "Tema personalizzato per Vanti Inerti.",
     "version": "1.0.0",
-    "labels": {
-        "company": {
-            "type": "text",
-            "label": "Nome azienda"
-        }
-    },
     "menus": {
         "top": "Menu di navigazione in alto",
         "intro": "Introduzione in Homepage",
@@ -17,6 +11,13 @@
         "servizi": "Vetrina servizi"
     },
     "templates": {
-        "vanti::templates.contacts": "Pagina contatti"
+        "templates.contacts": "Pagina contatti"
+    },
+    "labels": {
+        "company": {
+            "type": "text",
+            "label": "Nome azienda",
+            "descr": "Compare nel menu di navigazione"
+        }
     }
 }
