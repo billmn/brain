@@ -33,17 +33,6 @@ class Settings extends BaseModel
      * @var array
      */
     protected $casts = [
-        // 'value' => 'array',
+        'value' => 'array',
     ];
-
-    /**
-     * Temp Value accessor (Bug: https://github.com/laravel/framework/issues/13582).
-     *
-     * @param  mixed $value
-     * @return mixed
-     */
-    public function getValueAttribute($value)
-    {
-        return $this->fromJson($value);
-    }
 }
