@@ -18,9 +18,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
     Route::post('pages/move', ['as' => 'pages.move', 'uses' => 'PagesController@move']);
 
     Route::resource('menus', 'MenusController');
-    Route::post('menus/positions', ['as' => 'menus.positions', 'uses' => 'MenusController@positions']);
-
     Route::resource('menus.items', 'MenusItemsController');
+    Route::post('menus/positions', ['as' => 'menus.positions', 'uses' => 'MenusController@positions']);
     Route::post('menus/items/move', ['as' => 'menus.items.move', 'uses' => 'MenusItemsController@move']);
 
     Route::resource('forms', 'FormsController');
@@ -30,35 +29,15 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
     Route::resource('labels', 'LabelsController');
     Route::resource('themes', 'ThemesController');
 
-    Route::group(['prefix' => 'settings', 'namespace' => 'Settings'], function () {
-        Route::get('/', ['as' => 'settings.index', function () {
+    Route::group(['prefix' => 'settings', 'as' => 'settings.', 'namespace' => 'Settings'], function () {
+        Route::get('/', ['as' => 'index', function () {
             return redirect()->route('settings.general.index');
         }]);
 
-        Route::resource('general', 'GeneralController', ['names' => [
-            'index'   => 'settings.general.index',
-            'store'   => 'settings.general.store',
-        ]]);
-
-        Route::resource('notfound', 'NotfoundController', ['names' => [
-            'index'   => 'settings.notfound.index',
-            'store'   => 'settings.notfound.store',
-        ]]);
-
-        Route::resource('maintenance', 'MaintenanceController', ['names' => [
-            'index'   => 'settings.maintenance.index',
-            'store'   => 'settings.maintenance.store',
-        ]]);
-
-        Route::resource('users', 'UsersController', ['names' => [
-            'index'   => 'settings.users.index',
-            'create'  => 'settings.users.create',
-            'store'   => 'settings.users.store',
-            'show'    => 'settings.users.show',
-            'edit'    => 'settings.users.edit',
-            'update'  => 'settings.users.update',
-            'destroy' => 'settings.users.destroy',
-        ]]);
+        Route::resource('users', 'UsersController');
+        Route::resource('general', 'GeneralController');
+        Route::resource('notfound', 'NotfoundController');
+        Route::resource('maintenance', 'MaintenanceController');
     });
 });
 
