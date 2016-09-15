@@ -38272,7 +38272,8 @@ code {
   margin-bottom: 10px; }
 
 table td.empty {
-  color: #bbbbbb; }
+  color: #bbbbbb;
+  font-size: 120%; }
 
 .modal-content {
   padding: 0 2%; }

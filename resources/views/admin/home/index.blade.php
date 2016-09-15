@@ -11,6 +11,7 @@
             <thead>
                 <tr>
                     <th>{{ trans('admin.pages.fields.title') }}</th>
+                    <th>{{ trans('admin.pages.fields.status') }}</th>
                     <th>{{ trans('admin.common.updated_at') }}</th>
                 </tr>
             </thead>
@@ -20,14 +21,29 @@
                         <td>
                             <a href="{{ route('pages.edit', $page->id) }}">{{ $page->title }}</a>
                         </td>
+                        <td>{{ trans("admin.pages.status.{$page->status}") }}</td>
                         <td>{{ $page->updated_at }}</td>
                     </tr>
                 @empty
                     <tr>
-                        <td class="empty" colspan="2">{{ trans('admin.pages.empty') }}</td>
+                        <td class="empty" colspan="3">{{ trans('admin.pages.empty') }}</td>
                     </tr>
                 @endforelse
             </tbody>
+            <tfoot class="full-width">
+                <tr>
+                    <th>
+                        <a href="{{ route('pages.index') }}" class="ui small teal labeled icon button">
+                            <i class="right arrow icon"></i> {{ trans('admin.pages.title') }}
+                        </div>
+                    </th>
+                    <th colspan="2">
+                        <div class="ui right aligned">
+                            <strong>{{ trans('admin.common.total') }}: {{ $pages->count() }}</strong>
+                        </div>
+                    </th>
+                </tr>
+            </tfoot>
         </table>
     </div>
 
@@ -55,6 +71,21 @@
                     </tr>
                 @endforelse
             </tbody>
+
+            <tfoot class="full-width">
+                <tr>
+                    <th>
+                        <a href="{{ route('messages.index') }}" class="ui small teal labeled icon button">
+                            <i class="right arrow icon"></i> {{ trans('admin.messages.title') }}
+                        </div>
+                    </th>
+                    <th>
+                        <div class="ui right aligned">
+                            <strong>{{ trans('admin.common.total') }}: {{ $messages->count() }}</strong>
+                        </div>
+                    </th>
+                </tr>
+            </tfoot>
         </table>
     </div>
 </div>

@@ -14,7 +14,8 @@
         </a>
 
         <div class="ui dropdown item">
-            {{ Auth::user()->name }} <i class="dropdown icon"></i>
+            <img class="ui avatar image" src="{{ gravatar(Auth::user()->email) }}">&nbsp;&nbsp;
+            {{ Auth::user()->name }}<i class="dropdown icon"></i>
 
             <div class="menu">
                 <a href="#" class="ui item" onclick="event.preventDefault(); $('#logout-form').submit();">

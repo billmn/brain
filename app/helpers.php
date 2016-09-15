@@ -37,3 +37,17 @@ if (! function_exists('resample')) {
         return route('image', compact('path') + $params);
     }
 }
+
+if (! function_exists('gravatar')) {
+    /**
+     * Return Gravatar image url.
+     *
+     * @param  string $email
+     * @return string
+     */
+    function gravatar($email)
+    {
+        $hash = md5(strtolower(trim($email)));
+        return "http://www.gravatar.com/avatar/$hash";
+    }
+}
