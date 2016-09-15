@@ -5,13 +5,14 @@
 @section('content')
     <div class="ui menu">
         <div class="right menu">
-            <div class="item">{{ trans('admin.common.total') }}: {{ $messages->count() }}</div>
+            <div class="item">{{ trans('admin.common.total') }}: {{ $messages->total() }}</div>
         </div>
     </div>
 
     <table class="ui table striped">
         <thead>
             <tr>
+                <th>#</th>
                 <th>{{ trans('admin.messages.fields.form_name') }}</th>
                 <th>{{ trans('admin.messages.fields.email') }}</th>
                 <th>{{ trans('admin.messages.fields.created_at') }}</th>
@@ -21,6 +22,7 @@
         <tbody>
             @forelse($messages as $message)
             <tr>
+                <td>{{ $message->id }}</td>
                 <td>{{ $message->form_name }}</td>
                 <td>{{ $message->email }}</td>
                 <td>{{ $message->created_at }}</td>
@@ -31,9 +33,11 @@
             </tr>
             @empty
             <tr>
-                <td class="empty" colspan="4">{{ trans('admin.messages.empty') }}</td>
+                <td class="empty" colspan="5">{{ trans('admin.messages.empty') }}</td>
             </tr>
             @endforelse
         </tbody>
     </table>
+
+    {{ $messages->links('vendor.pagination.semantic-ui') }}
 @endsection

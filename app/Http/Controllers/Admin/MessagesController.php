@@ -24,7 +24,7 @@ class MessagesController extends Controller
      */
     public function index()
     {
-        $messages = $this->messageRepo->all();
+        $messages = $this->messageRepo->all(['paginate' => 10]);
 
         return view('admin.messages.index', compact('messages'));
     }

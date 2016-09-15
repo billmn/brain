@@ -43,10 +43,10 @@ class MessageRepository
      */
     public function all(array $params = [])
     {
-        $paginated = array_get($params, 'paginated', false);
+        $paginate = array_get($params, 'paginate', false);
         $query = $this->model->latest();
 
-        return is_numeric($paginated) ? $query->paginate($paginated) : $query->get();
+        return is_numeric($paginate) ? $query->paginate($paginate) : $query->get();
     }
 
     /**
