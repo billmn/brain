@@ -29,7 +29,7 @@
 
             {% for field in form.fields %}
                 {% set value = field.value ?: null %}
-                {% set field_error = session_get('errors').first('email') %}
+                {% set field_error = session_get('errors').first(field.name) %}
 
                 {% if field.type == 'hidden' %}
                     {% if field.info.name in fill|keys %}

@@ -12,12 +12,5 @@
     },
     "templates": {
         "templates.contacts": "Pagina contatti"
-    },
-    "labels": {
-        "company": {
-            "type": "text",
-            "label": "Nome azienda",
-            "descr": "Compare nel menu di navigazione"
-        }
     }
 }

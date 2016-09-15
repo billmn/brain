@@ -3,28 +3,30 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+
+use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Repositories\PageRepository;
 use App\Repositories\MessageRepository;
 
-class HomeController extends Controller
+class MessagesController extends Controller
 {
+    protected $messageRepo;
+
+    public function __construct(MessageRepository $messageRepo)
+    {
+        $this->messageRepo = $messageRepo;
+    }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(PageRepository $pageRepo, MessageRepository $messageRepo)
+    public function index()
     {
-        $pages = $pageRepo->all()->take(5)->sortByDesc(function($item) {
-            return $item->updated_at;
-        });
+        $messages = $this->messageRepo->all();
 
-        $messages = $messageRepo->all()->take(5)->sortByDesc(function($item) {
-            return $item->updated_at;
-        });
-
-        return view('admin.home.index', compact('pages', 'messages'));
+        return view('admin.messages.index', compact('messages'));
     }
 
     /**
@@ -56,7 +58,9 @@ class HomeController extends Controller
      */
     public function show($id)
     {
-        //
+        $message = $this->messageRepo->find($id);
+
+        return view('admin.messages.show', compact('message'));
     }
 
     /**
@@ -90,6 +94,8 @@ class HomeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->messageRepo->delete($id);
+
+        return back()->withSuccess(trans('admin.messages.message.delete_success'));
     }
 }

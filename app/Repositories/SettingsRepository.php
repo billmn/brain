@@ -64,7 +64,7 @@ class SettingsRepository
 
         $record = Settings::firstOrNew(compact('name'));
         $record->name = $name;
-        $record->value = json_encode($value, true);
+        $record->value = $value;
         $record->save();
 
         if ($forgetCache) {

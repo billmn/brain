@@ -4,13 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Repositories\FormRepository;
+use App\Repositories\MessageRepository;
 
 class ContactController extends Controller
 {
-    public function register($formId, Request $request, FormRepository $formRepo)
+    public function register($formId, Request $request, FormRepository $formRepo, MessageRepository $messageRepo)
     {
         $form = $formRepo->find($formId);
         $fields = $form->fields;
+
         $fieldsRules = $fields->pluck('rules', 'name')->merge([
             'hp'      => 'honeypot',
             'hp_time' => 'required|honeytime:5',
@@ -19,11 +21,9 @@ class ContactController extends Controller
         // Fields validation
         $this->validate($request, $fieldsRules->toArray());
 
-        // Fields / Input
-        $fields->each(function ($field) use ($request) {
-            $field->input = $request->get($field->name);
-        });
+        // Message registration
+        $messageRepo->create($request->get('email'), $form, $request->except('_token', 'hp', 'hp_time'));
 
-        dd($fields->toArray());
+        return back();
     }
 }

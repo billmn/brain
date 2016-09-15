@@ -16,34 +16,36 @@
             {!! Form::text('name', null, ['autofocus' => true]) !!}
         </div>
 
-        <div class="ui top attached tabular menu" data-cookie="admin_menu_tab">
-            <a class="item active" data-tab="info">{{ trans('admin.menus.tabs.info') }}</a>
-            <a class="item" data-tab="items">{{ trans('admin.menus.tabs.items') }}</a>
-        </div>
-
-        <div class="ui bottom attached tab segment active" data-tab="info">
-            <div class="field">
-                {!! Form::label(trans('admin.menus.fields.title')) !!}
-                {!! Form::text('title') !!}
+        @if ($menu->exists)
+            <div class="ui top attached tabular menu" data-cookie="admin_menu_tab">
+                <a class="item active" data-tab="info">{{ trans('admin.menus.tabs.info') }}</a>
+                <a class="item" data-tab="items">{{ trans('admin.menus.tabs.items') }}</a>
             </div>
 
-            <div class="field">
-                {!! Form::label(trans('admin.menus.fields.description')) !!}
-                {!! Form::wysi('description') !!}
+            <div class="ui bottom attached tab segment active" data-tab="info">
+                <div class="field">
+                    {!! Form::label(trans('admin.menus.fields.title')) !!}
+                    {!! Form::text('title') !!}
+                </div>
+
+                <div class="field">
+                    {!! Form::label(trans('admin.menus.fields.description')) !!}
+                    {!! Form::wysi('description') !!}
+                </div>
             </div>
-        </div>
 
-        <div class="ui bottom attached tab segment" data-tab="items">
-            <a class="ui green button modal-iframe" href="{{ route('menus.items.create', ['menu' => $menu, 'type' => 'link']) }}">
-                <i class="linkify icon"></i> {{ trans('admin.actions.add') }} {{ trans('admin.menus_items.types.link') }}
-            </a>
+            <div class="ui bottom attached tab segment" data-tab="items">
+                <a class="ui green button modal-iframe" href="{{ route('menus.items.create', ['menu' => $menu, 'type' => 'link']) }}">
+                    <i class="linkify icon"></i> {{ trans('admin.actions.add') }} {{ trans('admin.menus_items.types.link') }}
+                </a>
 
-            <a class="ui green button modal-iframe" href="{{ route('menus.items.create', ['menu' => $menu, 'type' => 'page']) }}">
-                <i class="file icon"></i> {{ trans('admin.actions.add') }} {{ trans('admin.menus_items.types.page') }}
-            </a>
+                <a class="ui green button modal-iframe" href="{{ route('menus.items.create', ['menu' => $menu, 'type' => 'page']) }}">
+                    <i class="file icon"></i> {{ trans('admin.actions.add') }} {{ trans('admin.menus_items.types.page') }}
+                </a>
 
-            <div id="fields_tree" class="tree-cont block-style"></div>
-        </div>
+                <div id="fields_tree" class="tree-cont block-style"></div>
+            </div>
+        @endif
 
         <a class="ui button" href="{{ route('menus.index') }}">
             <i class="angle left icon"></i> {{ trans('admin.actions.back') }}

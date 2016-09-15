@@ -10,7 +10,10 @@
         <i class="compass icon"></i> {{ trans('admin.menus.title') }}
     </a>
     <a class="item modal-files" href="javascript:;">
-        <i class="image icon"></i> Files
+        <i class="image icon"></i> {{ trans('admin.files.title') }}
+    </a>
+    <a class="item" href="{{ route('messages.index') }}">
+        <i class="mail text icon"></i> {{ trans('admin.messages.title') }}
     </a>
     <a class="item" href="{{ route('forms.index') }}">
         <i class="checkmark box icon"></i> {{ trans('admin.forms.title') }}

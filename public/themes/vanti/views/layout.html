@@ -24,6 +24,9 @@
     </head>
     <body>
         <nav class="navbar navbar-inverse navbar-fixed-top">
+            {% set menu = menu_find_by_position('top') %}
+            {% set menuItems = menu_elements(menu) %}
+
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu" aria-expanded="false">
@@ -32,11 +35,8 @@
                         <span class="icon-bar"></span>
                     </button>
 
-                    <a class="navbar-brand" href="/">{{ label('vanti::company') }}</a>
+                    <a class="navbar-brand" href="/">{{ menu.title }}</a>
                 </div>
-
-                {% set menu = menu_find_by_position('top') %}
-                {% set menuItems = menu_elements(menu) %}
 
                 {% if menuItems.count %}
                     <div id="menu" class="collapse navbar-collapse">

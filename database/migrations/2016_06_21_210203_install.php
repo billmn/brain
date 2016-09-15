@@ -1,6 +1,7 @@
 <?php
 
 use Kalnoy\Nestedset\Nestedset;
+use App\Repositories\UserRepository;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
@@ -30,7 +31,7 @@ class Install extends Migration
 
         Schema::create('settings', function (Blueprint $table) {
             $table->string('name')->primary();
-            $table->text('value')->nullable();
+            $table->json('value')->nullable();
             $table->timestamps();
         });
 
@@ -88,6 +89,8 @@ class Install extends Migration
             $table->string('name')->unique();
             $table->string('title')->nullable();
             $table->text('description')->nullable();
+            $table->string('success_message')->nullable();
+            $table->json('success_email')->nullable();
             $table->timestamps();
         });
 
@@ -106,6 +109,62 @@ class Install extends Migration
 
             $table->foreign('form_id')->references('id')->on('forms')->onUpdate('cascade')->onDelete('cascade');
         });
+
+        Schema::create('messages', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('form_id')->unsigned();
+            $table->string('form_name');
+            $table->string('email');
+            $table->json('fields');
+            $table->timestamps();
+        });
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | Default data
+        |--------------------------------------------------------------------------
+        */
+
+        app(UserRepository::class)->create([
+            'name'     => 'Admin',
+            'email'    => 'admin@email.dev',
+            'password' => 'password',
+        ]);
+
+        settings([
+            'labels' => [
+                'home'                 => "Home",
+                'go_home'              => "Go to Home",
+                'go_back'              => "Back",
+                'read_more'            => "Read more ...",
+                'search_label'         => "Search",
+                'search_btn'           => "Search",
+                'search_results'       => "Results for:",
+                'search_no_results'    => "No results",
+                'search_results_count' => "results",
+                'form_submit'          => "Send",
+                'loading'              => "Loading ...",
+            ]
+        ]);
+
+        settings([
+            'theme'    => 'default',
+            'timezone' => 'UTC',
+            'website' => [
+                'title'  => 'Website title',
+                'footer' => 'My website - &copy; Copyright '.date('Y'),
+            ],
+            'notfound' => [
+                'title'   => 'Page not found',
+                'content' => '<h1>Oooops!</h1>This page cannot be found!',
+            ],
+            'maintenance' => [
+                'status'  => 'online',
+                'title'   => 'Down for maintenance',
+                'content' => "<h1>We'll be back soon!</h1>",
+            ],
+        ]);
     }
 
     /**
@@ -115,6 +174,7 @@ class Install extends Migration
      */
     public function down()
     {
+        Schema::drop('messages');
         Schema::drop('settings');
         Schema::drop('password_resets');
         Schema::drop('users');

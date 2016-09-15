@@ -110,17 +110,27 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | HOME
+    |--------------------------------------------------------------------------
+    */
+    'files' => [
+        'title' => 'Files',
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
     | PAGES
     |--------------------------------------------------------------------------
     */
     'pages' => [
-        'title'        => 'Pages',
-        'sing'         => 'page',
-        'plur'         => 'pages',
-        'choice'       => 'page|pages',
-        'empty'        => 'No pages',
-        'default_tpl'  => '-- Default --',
-        'default_form' => '-- None --',
+        'title'         => 'Pages',
+        'sing'          => 'page',
+        'plur'          => 'pages',
+        'choice'        => 'page|pages',
+        'empty'         => 'No pages',
+        'default_tpl'   => '-- Default --',
+        'default_form'  => '-- None --',
+        'latest_edited' => 'Latest edited pages',
 
         'status' => [
             App\Models\Page::STATUS_DRAFT     => 'Draft',
@@ -217,6 +227,34 @@ return [
             'create_success' => 'Field created successfully.',
             'update_success' => 'Field updated successfully.',
             'delete_success' => 'Field deleted successfully.',
+        ],
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | MESSAGES
+    |--------------------------------------------------------------------------
+    */
+    'messages' => [
+        'title'  => 'Messages',
+        'sing'   => 'message',
+        'plur'   => 'messages',
+        'choice' => 'message|messages',
+        'empty'  => 'No messages received',
+        'latest' => 'Latest received messages',
+
+        'fields' => [
+            'form_id'    => 'Form ID',
+            'form_name'  => 'Form name',
+            'email'      => 'Email',
+            'fields'     => 'Fields',
+            'created_at' => 'Received at',
+        ],
+
+        'message' => [
+            'create_success' => 'Message created successfully.',
+            'update_success' => 'Message updated successfully.',
+            'delete_success' => 'Message deleted successfully.',
         ],
     ],
 

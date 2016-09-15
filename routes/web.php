@@ -13,6 +13,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
     });
 
     Route::resource('home', 'HomeController');
+    Route::resource('messages', 'MessagesController');
 
     Route::resource('pages', 'PagesController');
     Route::post('pages/move', ['as' => 'pages.move', 'uses' => 'PagesController@move']);
