@@ -5,7 +5,7 @@
     </a>
 
     @hasSection('title')
-        <div class="header item">@yield('title')</div>
+        <div class="header item section-title">@yield('title')</div>
     @endif
 
     <div class="right menu">

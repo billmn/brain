@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Services\Theme;
 use Illuminate\Http\Request;
-use Theme;
 use App\Http\Controllers\Controller;
-use App\Repositories\SettingsRepository;
 
 class ThemesController extends Controller
 {
@@ -14,10 +13,10 @@ class ThemesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Theme $theme)
     {
-        $themes = Theme::all();
-        $active = Theme::getActive();
+        $themes = $theme->all();
+        $active = $theme->getActive();
 
         return view('admin.themes.index', compact('themes', 'active'));
     }
@@ -72,9 +71,9 @@ class ThemesController extends Controller
      * @param  string  $name
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, SettingsRepository $settingsRepo, $name)
+    public function update(Request $request, $name)
     {
-        $settingsRepo->set('theme', $name);
+        settings(['theme' => $name]);
 
         return back()->withSuccess(trans('admin.themes.message.enable_success'));
     }

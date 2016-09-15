@@ -19,7 +19,6 @@
             <tr>
                 <th>{{ trans('admin.forms.fields.name') }}</th>
                 <th>{{ trans('admin.forms.fields.title') }}</th>
-                <th>{{ trans('admin.forms.fields.type') }}</th>
                 <th>{{ trans('admin.common.created_at') }}</th>
                 <th></th>
             </tr>
@@ -29,7 +28,6 @@
             <tr>
                 <td>{{ $form->name }}</td>
                 <td>{{ $form->title }}</td>
-                <td>{{ $form->type }}</td>
                 <td>{{ $form->created_at }}</td>
                 <td class="actions right aligned">
                     <a href="{{ route('forms.edit', $form->id) }}" class="ui button"><i class="write icon"></i></a>
