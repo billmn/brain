@@ -2,9 +2,11 @@
 
 namespace App\Repositories;
 
+use Notification;
 use App\Models\Form;
 use App\Models\Message;
 use App\Models\FormField;
+use App\Notifications\MessageRegistered;
 
 class MessageRepository
 {
@@ -79,7 +81,11 @@ class MessageRepository
             'form_name' => $form->name,
         ];
 
-        return $this->model->create($data);
+        $message = $this->model->create($data);
+
+        Notification::send($message, new MessageRegistered($form, $message));
+
+        return $message;
     }
 
     /**

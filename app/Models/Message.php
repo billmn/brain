@@ -2,8 +2,12 @@
 
 namespace App\Models;
 
+use Illuminate\Notifications\Notifiable;
+
 class Message extends BaseModel
 {
+    use Notifiable;
+
     /**
      * The attributes that are mass assignable.
      *
