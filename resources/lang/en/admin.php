@@ -276,16 +276,26 @@ return [
         ],
 
         'tabs' => [
-            'info'   => 'Info',
-            'fields' => 'Fields',
+            'info'          => 'Info',
+            'fields'        => 'Fields',
+            'notifications' => 'Notifications',
+        ],
+
+        'descriptions' => [
+            'success_message' => 'Show a message to the user after successful form submission.',
+            'success_email'   => 'Send an email to the user after successful form submission.',
         ],
 
         'fields' => [
-            'enabled'     => 'Enabled',
-            'type'        => 'Type',
-            'name'        => 'Name',
-            'title'       => 'Title',
-            'description' => 'Description',
+            'enabled'               => 'Enabled',
+            'type'                  => 'Type',
+            'name'                  => 'Name',
+            'title'                 => 'Title',
+            'description'           => 'Description',
+            'success_message'       => 'Success message',
+            'success_email'         => 'Success Email',
+            'success_email_subject' => 'Subject',
+            'success_email_content' => 'Content',
         ],
 
         'message' => [

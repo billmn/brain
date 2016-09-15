@@ -21,6 +21,17 @@ class Form extends BaseModel
         'name',
         'title',
         'description',
+        'success_message',
+        'success_email',
+    ];
+
+    /**
+     * The attributes that should be casted to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'success_email' => 'object',
     ];
 
     /**
@@ -81,6 +92,6 @@ class Form extends BaseModel
      */
     public function getActionAttribute()
     {
-        return route('contact.register', $this->id);
+        return route('message.register', $this->id);
     }
 }

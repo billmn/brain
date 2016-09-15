@@ -28,6 +28,7 @@
             <div class="ui top attached tabular menu" data-cookie="admin_form_tab">
                 <a class="item active" data-tab="info">{{ trans('admin.forms.tabs.info') }}</a>
                 <a class="item" data-tab="fields">{{ trans('admin.forms.tabs.fields') }}</a>
+                <a class="item" data-tab="notifications">{{ trans('admin.forms.tabs.notifications') }}</a>
             </div>
 
             <div class="ui bottom attached tab segment active" data-tab="info">
@@ -48,6 +49,33 @@
                 </a>
 
                 <div id="fields_tree" class="tree-cont block-style"></div>
+            </div>
+
+            <div class="ui bottom attached tab segment" data-tab="notifications">
+                <h3 class="ui dividing header">
+                    {{ trans('admin.forms.fields.success_message') }}
+                    <div class="sub header">{{ trans('admin.forms.descriptions.success_message') }}</div>
+                </h3>
+
+                <div class="field">
+                    {!! Form::text('success_message') !!}
+                </div>
+
+
+                <h3 class="ui dividing header">
+                    {{ trans('admin.forms.fields.success_email') }}
+                    <div class="sub header">{{ trans('admin.forms.descriptions.success_email') }}</div>
+                </h3>
+
+                <div class="field">
+                    {!! Form::label(trans('admin.forms.fields.success_email_subject')) !!}
+                    {!! Form::text('success_email[subject]') !!}
+                </div>
+
+                <div class="field">
+                    {!! Form::label(trans('admin.forms.fields.success_email_content')) !!}
+                    {!! Form::wysi('success_email[content]') !!}
+                </div>
             </div>
         @endif
 

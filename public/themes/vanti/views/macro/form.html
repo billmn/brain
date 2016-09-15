@@ -8,10 +8,6 @@
 
     {% if form %}
     <div class="form-cont">
-        {% if form.success %}
-            <div class="alert alert-success">{{ form.success }}</div>
-        {% endif %}
-
         {% if form.title or form.description %}
         <div class="form-heading">
             {% if form.title %}
@@ -22,6 +18,10 @@
                 <div class="page-subtitle">{{ form.description|raw }}</div>
             {% endif %}
         </div>
+        {% endif %}
+
+        {% if session_get('form_success') %}
+            <div class="alert alert-success">{{ session_get('form_success') }}</div>
         {% endif %}
 
         {{ form_open({ url: form.action, class: "form-#{align}" }) }}

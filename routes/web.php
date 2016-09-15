@@ -49,7 +49,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
 */
 Route::group([], function () {
     Route::get('image/{path}', ['as' => 'image', 'uses' => 'PagesController@image'])->where('path', '.+');
-    Route::post('contact/{form}', ['as' => 'contact.register', 'uses' => 'ContactController@register'])->where('form', '[0-9]+');
+    Route::post('message/{form}', ['as' => 'message.register', 'uses' => 'MessageController@register'])->where('form', '[0-9]+');
 
     Route::any('/', ['as' => 'website.home', 'uses' => 'PagesController@index']);
     Route::any('{path?}', ['as' => 'website.page', 'uses' => 'PagesController@page'])->where('path', '.*');

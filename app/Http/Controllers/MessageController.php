@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Repositories\FormRepository;
 use App\Repositories\MessageRepository;
 
-class ContactController extends Controller
+class MessageController extends Controller
 {
     public function register($formId, Request $request, FormRepository $formRepo, MessageRepository $messageRepo)
     {
@@ -24,6 +24,6 @@ class ContactController extends Controller
         // Message registration
         $messageRepo->create($request->get('email'), $form, $request->except('_token', 'hp', 'hp_time'));
 
-        return back();
+        return back()->with('form_success', $form->success_message);
     }
 }
