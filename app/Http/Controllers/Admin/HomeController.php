@@ -20,7 +20,7 @@ class HomeController extends Controller
             return $item->updated_at;
         });
 
-        $messages = $messageRepo->all(['paginate' => 10]);
+        $messages = $messageRepo->all(['paginate' => 5]);
 
         return view('admin.home.index', compact('pages', 'messages'));
     }

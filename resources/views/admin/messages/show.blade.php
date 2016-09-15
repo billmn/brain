@@ -17,7 +17,7 @@
                 {{ $message->form_name }}
 
                 <div class="sub header">
-                    <a href="{{ $message->email }}">{{ $message->email }}</a> - {{ $message->created_at }}
+                    <a href="mailto:{{ $message->email }}">{{ $message->email }}</a> - {{ $message->created_at }}
                 </div>
             </div>
         </h2>

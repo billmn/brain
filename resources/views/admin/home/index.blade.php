@@ -56,7 +56,7 @@
                 @forelse($messages as $message)
                     <tr>
                         <td>
-                            <a href="{{ route('messages.edit', $message->id) }}">{{ $message->email }}</a>
+                            <a class="modal-iframe" href="{{ route('messages.show', $message->id) }}">{{ $message->email }}</a>
                         </td>
                         <td>{{ $message->updated_at }}</td>
                     </tr>

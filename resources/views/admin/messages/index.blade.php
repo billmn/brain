@@ -24,10 +24,13 @@
             <tr>
                 <td>{{ $message->id }}</td>
                 <td>{{ $message->form_name }}</td>
-                <td>{{ $message->email }}</td>
+                <td>
+                    <a href="{{ route('messages.show', $message->id) }}" class="modal-iframe">
+                        {{ $message->email }}
+                    </a>
+                </td>
                 <td>{{ $message->created_at }}</td>
                 <td class="actions right aligned">
-                    <a href="{{ route('messages.show', $message->id) }}" class="ui button modal-iframe"><i class="eye icon"></i></a>
                     {!! Form::delete(route('messages.destroy', $message->id)) !!}
                 </td>
             </tr>
