@@ -38,11 +38,15 @@ class MessageRepository
     /**
      * All Messages.
      *
+     * @param  array  $params
      * @return \Illuminate\Database\Eloquent\Collection
      */
-    public function all()
+    public function all(array $params = [])
     {
-        return $this->model->latest()->get();
+        $paginated = array_get($params, 'paginated', false);
+        $query = $this->model->latest();
+
+        return is_numeric($paginated) ? $query->paginate($paginated) : $query->get();
     }
 
     /**

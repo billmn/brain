@@ -32,14 +32,9 @@
             </tbody>
             <tfoot class="full-width">
                 <tr>
-                    <th>
+                    <th colspan="3">
                         <a href="{{ route('pages.index') }}" class="ui small teal labeled icon button">
                             <i class="right arrow icon"></i> {{ trans('admin.pages.title') }}
-                        </div>
-                    </th>
-                    <th colspan="2">
-                        <div class="ui right aligned">
-                            <strong>{{ trans('admin.common.total') }}: {{ $pages->count() }}</strong>
                         </div>
                     </th>
                 </tr>
@@ -74,14 +69,9 @@
 
             <tfoot class="full-width">
                 <tr>
-                    <th>
+                    <th colspan="2">
                         <a href="{{ route('messages.index') }}" class="ui small teal labeled icon button">
                             <i class="right arrow icon"></i> {{ trans('admin.messages.title') }}
-                        </div>
-                    </th>
-                    <th>
-                        <div class="ui right aligned">
-                            <strong>{{ trans('admin.common.total') }}: {{ $messages->count() }}</strong>
                         </div>
                     </th>
                 </tr>

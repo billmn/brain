@@ -16,13 +16,11 @@ class HomeController extends Controller
      */
     public function index(PageRepository $pageRepo, MessageRepository $messageRepo)
     {
-        $pages = $pageRepo->all()->take(5)->sortByDesc(function($item) {
+        $pages = $pageRepo->all(['paginated' => 5])->sortByDesc(function($item) {
             return $item->updated_at;
         });
 
-        $messages = $messageRepo->all()->take(5)->sortByDesc(function($item) {
-            return $item->updated_at;
-        });
+        $messages = $messageRepo->all(['paginated' => 10]);
 
         return view('admin.home.index', compact('pages', 'messages'));
     }

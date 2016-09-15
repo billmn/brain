@@ -51,14 +51,16 @@ class PageRepository
      */
     public function all(array $params = [])
     {
+        $paginated = array_get($params, 'paginated', false);
         $onlyVisible = array_get($params, 'onlyVisible', false);
+
         $query = $this->model->withDepth()->defaultOrder();
 
         if ($onlyVisible === true) {
             $query = $query->visible();
         }
 
-        return $query->get();
+        return is_numeric($paginated) ? $query->paginate($paginated) : $query->get();
     }
 
     /**
