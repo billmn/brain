@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Admin\Settings;
 
-use DateTimeZone;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repositories\SettingsRepository;
@@ -26,10 +25,8 @@ class GeneralController extends Controller
     public function index()
     {
         $settings = $this->settingsRepo->all();
-        $timezones = DateTimeZone::listIdentifiers(DateTimeZone::ALL);
-        $timezones = array_combine($timezones, $timezones);
 
-        return view('admin.settings.website.index', compact('settings', 'timezones'));
+        return view('admin.settings.website.index', compact('settings'));
     }
 
     /**

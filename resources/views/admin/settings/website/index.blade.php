@@ -12,11 +12,6 @@
         </div>
 
         <div class="field">
-            {!! Form::label(trans('admin.settings.general.fields.timezone')) !!}
-            {!! Form::select('timezone', $timezones, null, ['class' => 'ui search dropdown']) !!}
-        </div>
-
-        <div class="field">
             {!! Form::label(trans('admin.settings.general.fields.website_footer')) !!}
             {!! Form::wysi('website[footer]') !!}
         </div>
