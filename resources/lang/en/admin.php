@@ -256,6 +256,13 @@ return [
             'update_success' => 'Message updated successfully.',
             'delete_success' => 'Message deleted successfully.',
         ],
+
+        'email' => [
+            'owner' => [
+                'subject' => 'Message received on website',
+                'intro_1' => 'A message has been received from :sender on website from Contact Form ":form_name", the details of the completed fields are :',
+            ],
+        ],
     ],
 
     /*
@@ -294,8 +301,10 @@ return [
             'description'           => 'Description',
             'success_message'       => 'Success message',
             'success_email'         => 'Success Email',
+            'success_email_sender'  => 'Sender Name',
             'success_email_subject' => 'Subject',
             'success_email_content' => 'Content',
+            'success_email_footer'  => 'Footer',
         ],
 
         'message' => [

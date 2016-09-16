@@ -15,16 +15,18 @@ class MessageRegistered extends Notification
 
     protected $form;
     protected $message;
+    protected $toOwner;
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct(Form $form, Message $message)
+    public function __construct(Form $form, Message $message, $toOwner = false)
     {
         $this->form = $form;
         $this->message = $message;
+        $this->toOwner = $toOwner;
     }
 
     /**
@@ -46,7 +48,22 @@ class MessageRegistered extends Notification
      */
     public function toMail($notifiable)
     {
-        return (new MailMessage)
+        $mailMessage = (new MailMessage)->view('vendor.notifications.message-registered', [
+            'form' => $this->form,
+            'formMessage' => $this->message,
+        ]);
+
+        if ($this->toOwner) {
+            return $mailMessage
+                        ->to($this->toOwner)
+                        ->subject(trans('admin.messages.email.owner.subject'))
+                        ->line(trans('admin.messages.email.owner.intro_1', [
+                            'sender'    => $this->message->email,
+                            'form_name' => $this->form->name,
+                        ]));
+        }
+
+        return $mailMessage
                     ->subject($this->form->success_email->subject)
                     ->line($this->form->success_email->content);
     }

@@ -61,11 +61,15 @@
                     {!! Form::text('success_message') !!}
                 </div>
 
-
                 <h3 class="ui dividing header">
                     {{ trans('admin.forms.fields.success_email') }}
                     <div class="sub header">{{ trans('admin.forms.descriptions.success_email') }}</div>
                 </h3>
+
+                <div class="field">
+                    {!! Form::label(trans('admin.forms.fields.success_email_sender')) !!}
+                    {!! Form::text('success_email[sender]') !!}
+                </div>
 
                 <div class="field">
                     {!! Form::label(trans('admin.forms.fields.success_email_subject')) !!}
@@ -75,6 +79,11 @@
                 <div class="field">
                     {!! Form::label(trans('admin.forms.fields.success_email_content')) !!}
                     {!! Form::wysi('success_email[content]') !!}
+                </div>
+
+                <div class="field">
+                    {!! Form::label(trans('admin.forms.fields.success_email_footer')) !!}
+                    {!! Form::wysi('success_email[footer]') !!}
                 </div>
             </div>
         @endif

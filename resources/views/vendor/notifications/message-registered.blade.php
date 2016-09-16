@@ -33,7 +33,7 @@ $style = [
     'email-body_cell' => 'padding: 35px;',
 
     'email-footer' => 'width: auto; max-width: 570px; margin: 0 auto; padding: 0; text-align: center;',
-    'email-footer_cell' => 'color: #999999; padding: 35px; text-align: center;',
+    'email-footer_cell' => 'color: #999999; font-size: 12px; padding: 35px; text-align: center;',
 
     /* Body ------------------------------ */
 
@@ -71,7 +71,7 @@ $style = [
                     <tr>
                         <td style="{{ $style['email-masthead'] }}">
                             <a style="{{ $fontFamily }} {{ $style['email-masthead_name'] }}" href="{{ url('/') }}" target="_blank">
-                                {{ settings('website.title') }}
+                                {{ $form->success_email->sender ?: settings('website.title') }}
                             </a>
                         </td>
                     </tr>
@@ -82,17 +82,6 @@ $style = [
                             <table style="{{ $style['email-body_inner'] }}" align="center" width="570" cellpadding="0" cellspacing="0">
                                 <tr>
                                     <td style="{{ $fontFamily }} {{ $style['email-body_cell'] }}">
-                                        <!-- Greeting -->
-                                        <h1 style="{{ $style['header-1'] }}">
-                                            @if (! empty($greeting))
-                                                {{ $greeting }}
-                                            @else
-                                                @if ($level == 'error')
-                                                    Whoops!
-                                                @endif
-                                            @endif
-                                        </h1>
-
                                         <!-- Intro -->
                                         @foreach ($introLines as $line)
                                             <p style="{{ $style['paragraph'] }}">
@@ -135,6 +124,21 @@ $style = [
                                                 {!! $line !!}
                                             </p>
                                         @endforeach
+
+                                        <table border="0" cellpadding="0" cellspacing="0" width="100%" style="border: 1px solid #cccccc; border-bottom: 0;">
+                                            @foreach($formMessage->fields as $name => $field)
+                                                @if ($field->type != 'hidden')
+                                                    <tr>
+                                                        <td valign="top" width="35%" style="background: #f2f4f6; border-bottom: 1px solid #cccccc; padding: 5px 0 5px 5px;text-align:left;font-family:Helvetica,Arial,sans-serif;font-size:14px;margin-bottom:0;margin-top:3px;color:#5F5F5F;line-height:135%;">
+                                                            <strong>{{ $field->label }}</strong>
+                                                        </td>
+                                                        <td valign="top" style="border-left: 1px solid #cccccc; border-bottom: 1px solid #cccccc; padding: 5px 0 5px 5px;text-align:left;font-family:Helvetica,Arial,sans-serif;font-size:14px;margin-bottom:0;margin-top:3px;color:#5F5F5F;line-height:135%;">
+                                                            {!! nl2br($field->input) !!}
+                                                        </td>
+                                                    </tr>
+                                                @endif
+                                            @endforeach
+                                        </table>
                                     </td>
                                 </tr>
                             </table>
@@ -148,7 +152,7 @@ $style = [
                                 <tr>
                                     <td style="{{ $fontFamily }} {{ $style['email-footer_cell'] }}">
                                         <p style="{{ $style['paragraph-sub'] }}">
-                                            <a style="{{ $style['anchor'] }}" href="{{ url('/') }}" target="_blank">{!! settings('website.footer') !!}</a>.
+                                            {!! $form->success_email->footer !!}
                                         </p>
                                     </td>
                                 </tr>

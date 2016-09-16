@@ -84,6 +84,7 @@ class MessageRepository
         $message = $this->model->create($data);
 
         Notification::send($message, new MessageRegistered($form, $message));
+        Notification::send($message, new MessageRegistered($form, $message, config('mail.from.address')));
 
         return $message;
     }
