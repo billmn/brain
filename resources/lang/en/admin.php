@@ -197,7 +197,7 @@ return [
             'create_success'   => 'Menu created successfully.',
             'update_success'   => 'Menu updated successfully.',
             'delete_success'   => 'Menu deleted successfully.',
-            'position_success' => 'Postions saved successfully.',
+            'position_success' => 'Positions saved successfully.',
         ],
     ],
 
@@ -206,7 +206,7 @@ return [
         'sing'    => 'item',
         'plur'    => 'items',
         'choice'  => 'item|items',
-        'empty'   => 'No items added',
+        'empty'   => 'No items',
 
         'types' => [
             App\Models\MenuItem::TYPE_LINK => 'Link',
@@ -275,7 +275,7 @@ return [
         'sing'    => 'form',
         'plur'    => 'forms',
         'choice'  => 'form|forms',
-        'empty'   => 'No forms created',
+        'empty'   => 'No forms',
 
         'types' => [
             App\Models\Form::TYPE_PAGE    => 'Page',
@@ -319,7 +319,7 @@ return [
         'sing'    => 'field',
         'plur'    => 'fields',
         'choice'  => 'field|fields',
-        'empty'   => 'No fields added',
+        'empty'   => 'No fields',
 
         'types' => [
             App\Models\FormField::TYPE_DATE     => 'Date',
@@ -411,7 +411,6 @@ return [
             'scripts' => 'Scripts',
 
             'fields' => [
-                'timezone'        => 'Timezone',
                 'home_title'      => 'Homepage title',
                 'website_title'   => 'Website title',
                 'website_footer'  => 'Website footer',
