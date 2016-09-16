@@ -297,7 +297,7 @@ return [
             'enabled'               => 'Abilitato',
             'type'                  => 'Tipo',
             'name'                  => 'Nome',
-            'title'                 => 'TItolo',
+            'title'                 => 'Titolo',
             'description'           => 'Descrizione',
             'success_message'       => 'Messaggio di successo',
             'success_email'         => 'Email di successo',
