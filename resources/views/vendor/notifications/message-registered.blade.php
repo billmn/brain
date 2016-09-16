@@ -71,7 +71,7 @@ $style = [
                     <tr>
                         <td style="{{ $style['email-masthead'] }}">
                             <a style="{{ $fontFamily }} {{ $style['email-masthead_name'] }}" href="{{ url('/') }}" target="_blank">
-                                {{ $form->success_email->sender ?: settings('website.title') }}
+                                {{ config('mail.from.name') }}
                             </a>
                         </td>
                     </tr>
