@@ -4,7 +4,7 @@
 
 @section('content')
     {!! Form::open(['url' => 'password/reset', 'class' => 'ui form auth-reset']) !!}
-        <h1 class="ui teal header">{{ trans('admin.auth.reset.title') }}</h1>
+        <h2 class="ui teal header">{{ trans('admin.auth.reset.title') }}</h2>
 
         {!! Form::errors(['title' => false]) !!}
 

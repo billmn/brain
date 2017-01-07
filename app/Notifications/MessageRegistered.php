@@ -63,9 +63,11 @@ class MessageRegistered extends Notification
                         ]));
         }
 
-        return $mailMessage
-                    ->subject($this->form->success_email->subject)
-                    ->line($this->form->success_email->content);
+        if ($this->form->success_email) {
+            return $mailMessage
+                        ->subject($this->form->success_email->subject)
+                        ->line($this->form->success_email->content);
+        }
     }
 
     /**

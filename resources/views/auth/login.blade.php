@@ -4,7 +4,7 @@
 
 @section('content')
     {!! Form::open(['url' => 'login', 'class' => 'ui form auth-signin']) !!}
-        <h1 class="ui teal header">{{ trans('admin.auth.login.title') }}</h1>
+        <h2 class="ui teal header">{{ trans('admin.auth.login.title') }}</h2>
 
         {!! Form::errors(['title' => false]) !!}
 

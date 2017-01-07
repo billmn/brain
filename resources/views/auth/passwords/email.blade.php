@@ -4,9 +4,15 @@
 
 @section('content')
     {!! Form::open(['url' => 'password/email', 'class' => 'ui form auth-forgot']) !!}
-        <h1 class="ui teal header">{{ trans('admin.auth.forgot.title') }}</h1>
+        <h2 class="ui teal header">{{ trans('admin.auth.forgot.title') }}</h2>
 
         {!! Form::errors(['title' => false]) !!}
+
+        @if (session('status'))
+            <div class="ui positive message">
+                <div class="item">{{ session('status') }}</div>
+            </div>
+        @endif
 
         <div class="field">
             {!! Form::label(trans('admin.auth.forgot.email')) !!}
