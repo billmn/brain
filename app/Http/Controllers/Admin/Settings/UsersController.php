@@ -53,7 +53,7 @@ class UsersController extends Controller
     {
         $user = $this->userRepo->create($request->all());
 
-        return redirect()->route('users.edit', $user->id)->withSuccess(trans('admin.settings.users.message.create_success'));
+        return redirect()->route('settings.users.edit', $user->id)->withSuccess(trans('admin.settings.users.message.create_success'));
     }
 
     /**
