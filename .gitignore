@@ -16,3 +16,4 @@ storage/glide
 public/themes/*
 !public/themes/vanti/
 !public/themes/default/
+yarn.lock
