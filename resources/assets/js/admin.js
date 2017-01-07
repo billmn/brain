@@ -188,7 +188,7 @@ var ck_config_full = {
         { items: ['Source'] }
     ],
 
-    language: 'en',
+    language: LOCALE,
     height: 300,
     emailProtection: '',
     toolbarCanCollapse: true,
@@ -215,7 +215,7 @@ var ck_config_source = {
     ],
 
     height: 300,
-    language: 'en',
+    language: LOCALE,
     startupMode: 'source',
     extraPlugins: 'sourcedialog,codemirror',
     allowedContent: true,
