@@ -4,7 +4,7 @@
 
 <div class="service col-md-4">
     <div class="img-wrapper">
-        <img class="img-responsive" src="{{ page.primary_image ? resample(page.primary_image, { w: 400 }) : theme_asset('img/placeholder.jpg') }}">
+        <img class="img-responsive" src="{{ page.primary_image ? resample(page.primary_image) : theme_asset('img/placeholder.jpg') }}">
     </div>
 
     <h4 class="text-uppercase">{{ page.title }}</h4>
